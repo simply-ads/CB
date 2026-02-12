@@ -1,13 +1,8 @@
 import Link from "next/link";
-import dynamic from "next/dynamic";
 import { notFound } from "next/navigation";
 import { BookOpen, Edit3 } from "lucide-react";
 import { reader } from "@/lib/reader";
-
-const PdfViewer = dynamic(() => import("@/components/PdfViewer"), {
-  ssr: false,
-  loading: () => <div className="p-12 text-center text-charcoal/40">Loading document...</div>,
-});
+import PdfViewerClient from "@/components/PdfViewerClient";
 
 // Fallback images keyed by slug
 const fallbackImages: Record<string, string[]> = {
@@ -220,7 +215,7 @@ export default async function CaseStudy({
             {project.documents.map((doc, i) => (
               doc.file && (
                 <div key={i} className="border border-charcoal/10 rounded-sm overflow-hidden">
-                  <PdfViewer file={doc.file} label={doc.label ?? "Document"} />
+                  <PdfViewerClient file={doc.file} label={doc.label ?? "Document"} />
                 </div>
               )
             ))}
