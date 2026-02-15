@@ -41,7 +41,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         </Link>
 
         {/* Desktop Nav */}
-        <div className="hidden md:flex items-center space-x-12 uppercase tracking-[0.3em] text-[10px] font-bold z-50">
+        <div className="hidden md:flex items-center space-x-12 uppercase tracking-[0.1em] text-[11px] font-bold z-50">
           {isCaseStudy ? (
             <Link
               href="/work"
@@ -107,7 +107,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       {/* Footer */}
       {!isCaseStudy && (
         <footer className="relative z-10 py-12 border-t border-charcoal/5 px-6 md:px-12 lg:px-24 bg-cream">
-          <div className="max-w-screen-2xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8 text-[10px] font-bold uppercase tracking-[0.4em]">
+          <div className="max-w-screen-2xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8 text-[11px] font-bold uppercase tracking-[0.1em]">
             <div className="text-charcoal flex items-center gap-4">
               <span className="text-xl italic font-display lowercase tracking-normal">
                 a.v.

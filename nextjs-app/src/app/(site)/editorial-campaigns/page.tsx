@@ -50,7 +50,7 @@ export default async function EditorialCampaigns() {
             </span>
           </h1>
           <div className="max-w-xs mt-8 md:mt-0">
-            <p className="text-xs uppercase tracking-[0.4em] font-bold text-terracotta mb-4">
+            <p className="text-xs uppercase tracking-[0.1em] font-bold text-terracotta mb-4">
               {subtitleLabel}
             </p>
             <p className="text-sm text-charcoal/60 leading-relaxed font-sans">
@@ -131,10 +131,10 @@ export default async function EditorialCampaigns() {
       </div>
 
       <div className="py-32 mt-24 border-t border-charcoal/10 text-center">
-        <span className="uppercase tracking-[0.5em] text-[11px] font-bold text-terracotta mb-8 block">
+        <span className="uppercase tracking-[0.15em] text-[11px] font-bold text-terracotta mb-8 block">
           Next Step
         </span>
-        <h2 className="text-5xl md:text-8xl font-display mb-12 tracking-tighter leading-[0.9]">
+        <h2 className="text-5xl md:text-8xl font-display mb-12 tracking-tighter leading-[0.95]">
           {ctaHeading} <br />
           <span className="italic text-terracotta">{ctaSubheading}</span>
         </h2>

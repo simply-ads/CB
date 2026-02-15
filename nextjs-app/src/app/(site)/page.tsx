@@ -71,13 +71,13 @@ export default async function Home() {
         </div>
 
         <div className="relative z-10 text-center px-6 animate-fade-in-up">
-          <h1 className="text-6xl md:text-[10rem] font-display text-charcoal tracking-tighter leading-[0.9]">
+          <h1 className="text-6xl md:text-[10rem] font-display text-charcoal tracking-tighter leading-[0.95]">
             Narratives <br />
             <span className="italic font-normal text-terracotta">
               of Escape.
             </span>
           </h1>
-          <p className="mt-12 text-charcoal/60 uppercase tracking-[0.5em] text-[10px] font-bold">
+          <p className="mt-12 text-charcoal/60 uppercase tracking-[0.15em] text-[11px] font-bold">
             {homepage?.heroSubtext ?? "Editorial Copywriter for Global Hospitality"}
           </p>
         </div>
@@ -138,7 +138,7 @@ export default async function Home() {
         </div>
 
         <div className="mb-16 max-w-5xl relative z-10">
-          <span className="uppercase tracking-[0.4em] text-[10px] font-bold text-terracotta mb-4 block">
+          <span className="uppercase tracking-[0.1em] text-[11px] font-bold text-terracotta mb-4 block">
             The Portfolio
           </span>
           <h2 className="text-5xl md:text-8xl lg:text-[8rem] font-display mb-8">
@@ -273,7 +273,7 @@ export default async function Home() {
 
         <div className="max-w-screen-2xl mx-auto px-6 md:px-24 grid grid-cols-1 lg:grid-cols-2 gap-16 relative z-10">
           <div className="flex flex-col justify-center">
-            <h2 className="text-6xl md:text-8xl font-display mb-10 leading-[0.9] tracking-tighter">
+            <h2 className="text-6xl md:text-8xl font-display mb-10 leading-[0.95] tracking-tighter">
               The New <br />
               <span className="italic text-terracotta">Luxury.</span>
             </h2>
@@ -331,10 +331,10 @@ export default async function Home() {
       {/* Inquiry Call to Action */}
       <section className="py-32 text-center px-6 relative bg-cream overflow-hidden">
         <div className="max-w-4xl mx-auto relative z-10">
-          <span className="uppercase tracking-[0.4em] text-[10px] font-bold text-terracotta mb-8 block">
+          <span className="uppercase tracking-[0.1em] text-[11px] font-bold text-terracotta mb-8 block">
             Inquiries
           </span>
-          <h2 className="text-6xl md:text-[8rem] font-display mb-12 tracking-tighter leading-[0.9]">
+          <h2 className="text-6xl md:text-[8rem] font-display mb-12 tracking-tighter leading-[0.95]">
             {homepage?.footerCTA ? (
               <>{homepage.footerCTA}</>
             ) : (
@@ -350,7 +350,7 @@ export default async function Home() {
           >
             {footerEmail}
           </a>
-          <p className="mt-16 text-charcoal/40 text-xs uppercase tracking-[0.3em]">
+          <p className="mt-16 text-charcoal/40 text-xs uppercase tracking-[0.1em]">
             Based in Barcelona &mdash; Working Worldwide
           </p>
         </div>
