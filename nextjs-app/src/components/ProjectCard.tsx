@@ -41,7 +41,7 @@ export default function ProjectCard({
       <div
         className={`${alignRight ? "ml-auto" : ""} ${size === "large" ? "max-w-2xl" : "max-w-md"}`}
       >
-        <span className="text-[10px] uppercase tracking-[0.4em] font-bold text-terracotta block mb-3">
+        <span className="text-[11px] uppercase tracking-[0.1em] font-bold text-terracotta block mb-3">
           {project.category}
         </span>
         <h3

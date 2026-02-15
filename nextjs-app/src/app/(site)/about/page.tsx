@@ -32,10 +32,10 @@ export default function About() {
             </div>
           </div>
           <div className="lg:col-span-7 lg:pl-12 pt-12">
-            <span className="uppercase tracking-[0.4em] text-[10px] font-bold text-terracotta mb-6 block">
+            <span className="uppercase tracking-[0.1em] text-[11px] font-bold text-terracotta mb-6 block">
               The Founder
             </span>
-            <h1 className="text-6xl md:text-[7rem] lg:text-[8rem] font-display font-bold mb-12 tracking-tight leading-[0.9]">
+            <h1 className="text-6xl md:text-[7rem] lg:text-[8rem] font-display font-bold mb-12 tracking-tight leading-[0.95]">
               Behind <br />
               the{" "}
               <span className="italic font-normal text-terracotta">Pen.</span>

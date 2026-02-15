@@ -21,11 +21,11 @@ export default function Contact() {
       </div>
 
       <div className="max-w-6xl mx-auto px-6 text-center relative z-10">
-        <span className="uppercase tracking-[0.5em] text-[12px] font-bold text-terracotta mb-12 block">
+        <span className="uppercase tracking-[0.15em] text-[12px] font-bold text-terracotta mb-12 block">
           Get in Touch
         </span>
 
-        <h1 className="text-7xl md:text-[10rem] font-display mb-16 tracking-tighter leading-[0.9]">
+        <h1 className="text-7xl md:text-[10rem] font-display mb-16 tracking-tighter leading-[0.95]">
           Let&apos;s write <br />
           <span className="italic font-normal">the next chapter.</span>
         </h1>
@@ -44,7 +44,7 @@ export default function Contact() {
           </a>
         </div>
 
-        <div className="mt-24 grid grid-cols-1 md:grid-cols-3 gap-8 text-[11px] font-bold uppercase tracking-[0.4em] text-charcoal/40 border-t border-charcoal/5 pt-12">
+        <div className="mt-24 grid grid-cols-1 md:grid-cols-3 gap-8 text-[11px] font-bold uppercase tracking-[0.1em] text-charcoal/40 border-t border-charcoal/5 pt-12">
           <div>
             <span className="block text-terracotta mb-2">Location</span>
             Barcelona, Spain

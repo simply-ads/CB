@@ -58,8 +58,8 @@ export default async function Work() {
             </span>
           </h1>
           <div className="max-w-xs mt-8 md:mt-0">
-            <p className="text-xs uppercase tracking-[0.4em] font-bold text-terracotta mb-4">
-              Work Gallery 2022&mdash;24
+            <p className="text-xs uppercase tracking-[0.1em] font-bold text-terracotta mb-4">
+              Work Gallery 2022&ndash;24
             </p>
             <p className="text-sm text-charcoal/60 leading-relaxed font-sans">
               A curated collection of brand narratives, heritage storytelling,
@@ -168,10 +168,10 @@ export default async function Work() {
 
       {/* CTA */}
       <div className="py-32 mt-24 border-t border-charcoal/10 text-center">
-        <span className="uppercase tracking-[0.5em] text-[11px] font-bold text-terracotta mb-8 block">
+        <span className="uppercase tracking-[0.15em] text-[11px] font-bold text-terracotta mb-8 block">
           Next Step
         </span>
-        <h2 className="text-5xl md:text-8xl font-display mb-12 tracking-tighter leading-[0.9]">
+        <h2 className="text-5xl md:text-8xl font-display mb-12 tracking-tighter leading-[0.95]">
           Let&apos;s build <br />
           <span className="italic text-terracotta">your legacy.</span>
         </h2>

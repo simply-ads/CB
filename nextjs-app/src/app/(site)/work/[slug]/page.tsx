@@ -54,10 +54,10 @@ export default async function CaseStudy({
       <div className="px-6 md:px-12 lg:px-24 max-w-7xl mx-auto mb-16">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
           <div className="max-w-4xl">
-            <span className="uppercase tracking-[0.4em] text-[10px] font-bold text-terracotta mb-6 block">
+            <span className="uppercase tracking-[0.1em] text-[11px] font-bold text-terracotta mb-6 block">
               Case Study {project.number ?? "01"} / {project.category ?? "Hospitality Portfolio"}
             </span>
-            <h1 className="text-6xl md:text-[8rem] lg:text-[10rem] font-display leading-[0.85] tracking-tighter text-charcoal">
+            <h1 className="text-6xl md:text-[8rem] lg:text-[10rem] font-display leading-[0.95] tracking-tighter text-charcoal">
               {project.title.split(" ").slice(0, -1).join(" ")}{" "}
               <br />
               <span className="italic font-normal text-terracotta">
@@ -93,7 +93,7 @@ export default async function CaseStudy({
       {/* Content Section */}
       <section className="py-24 px-6 md:px-12 lg:px-24 max-w-screen-2xl mx-auto">
         <div className="mb-24">
-          <span className="uppercase tracking-[0.4em] text-[10px] font-bold text-terracotta mb-4 block">
+          <span className="uppercase tracking-[0.1em] text-[11px] font-bold text-terracotta mb-4 block">
             Process
           </span>
           <h2 className="text-6xl md:text-8xl font-display mb-12">
@@ -159,7 +159,7 @@ export default async function CaseStudy({
                 <span className="text-5xl font-display mb-2">
                   {project.stats[0]?.number}
                 </span>
-                <span className="text-[10px] uppercase tracking-[0.4em] font-bold opacity-60">
+                <span className="text-[11px] uppercase tracking-[0.1em] font-bold opacity-60">
                   {project.stats[0]?.label}
                 </span>
               </div>
@@ -204,7 +204,7 @@ export default async function CaseStudy({
       {project.documents && project.documents.length > 0 && (
         <section className="py-24 px-6 md:px-12 lg:px-24 max-w-screen-2xl mx-auto">
           <div className="mb-16">
-            <span className="uppercase tracking-[0.4em] text-[10px] font-bold text-terracotta mb-4 block">
+            <span className="uppercase tracking-[0.1em] text-[11px] font-bold text-terracotta mb-4 block">
               Documents
             </span>
             <h2 className="text-5xl md:text-7xl font-display mb-8">
@@ -231,7 +231,7 @@ export default async function CaseStudy({
               <h2 className="text-3xl md:text-6xl font-display italic mb-12">
                 &ldquo;{project.testimonialQuote}&rdquo;
               </h2>
-              <p className="uppercase tracking-[0.4em] text-[10px] font-bold text-terracotta mb-16">
+              <p className="uppercase tracking-[0.1em] text-[11px] font-bold text-terracotta mb-16">
                 &mdash; {project.testimonialAuthor}
                 {project.testimonialRole && `, ${project.testimonialRole}`}
               </p>

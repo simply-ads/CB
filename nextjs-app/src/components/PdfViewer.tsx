@@ -76,7 +76,7 @@ export default function PdfViewer({ file, label }: PdfViewerProps) {
           isExpanded ? "px-8 py-4" : "px-6 py-3 mb-1"
         }`}
       >
-        <span className="text-[10px] uppercase tracking-[0.4em] font-bold text-terracotta">
+        <span className="text-[11px] uppercase tracking-[0.1em] font-bold text-terracotta">
           {label}
         </span>
         <div className="flex items-center gap-1">
@@ -88,7 +88,7 @@ export default function PdfViewer({ file, label }: PdfViewerProps) {
           >
             <ZoomOut size={16} />
           </button>
-          <span className="text-[10px] font-bold text-charcoal/40 w-12 text-center tracking-wider">
+          <span className="text-[11px] font-bold text-charcoal/40 w-12 text-center tracking-wider">
             {Math.round(scale * 100)}%
           </span>
           <button
@@ -122,14 +122,14 @@ export default function PdfViewer({ file, label }: PdfViewerProps) {
             onLoadSuccess={onDocumentLoadSuccess}
             loading={
               <div className="flex items-center justify-center py-24">
-                <span className="text-sm text-charcoal/40 uppercase tracking-[0.3em] font-bold">
+                <span className="text-sm text-charcoal/40 uppercase tracking-[0.1em] font-bold">
                   Loading&hellip;
                 </span>
               </div>
             }
             error={
               <div className="flex items-center justify-center py-24">
-                <span className="text-sm text-charcoal/40 uppercase tracking-[0.3em] font-bold">
+                <span className="text-sm text-charcoal/40 uppercase tracking-[0.1em] font-bold">
                   Unable to load document
                 </span>
               </div>
@@ -174,7 +174,7 @@ export default function PdfViewer({ file, label }: PdfViewerProps) {
           >
             <ChevronLeft size={18} />
           </button>
-          <span className="text-[10px] font-bold text-charcoal/60 uppercase tracking-[0.3em]">
+          <span className="text-[11px] font-bold text-charcoal/60 uppercase tracking-[0.1em]">
             {pageLabel}
           </span>
           <button
