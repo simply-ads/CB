@@ -1,37 +1,30 @@
-import React, { useEffect } from 'react';
-import { HashRouter, Routes, Route, useLocation } from 'react-router-dom';
+import React from 'react';
+import { HashRouter, Route, Routes } from 'react-router-dom';
 import Layout from './components/Layout';
 import Home from './pages/Home';
-import Work from './pages/Work';
+import Destinations from './pages/Destinations';
+import Stars from './pages/Stars';
+import Films from './pages/Films';
+import Decades from './pages/Decades';
+import Shop from './pages/Shop';
 import About from './pages/About';
-import Contact from './pages/Contact';
-import CaseStudy from './pages/CaseStudy';
-import BrandStrategy from './pages/BrandStrategy';
-import WebsiteCopy from './pages/WebsiteCopy';
-import EditorialCampaigns from './pages/EditorialCampaigns';
-
-const ScrollToTop = () => {
-  const { pathname } = useLocation();
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
-  return null;
-};
+import Newsletter from './pages/Newsletter';
+import Article from './pages/Article';
 
 const App: React.FC = () => {
   return (
     <HashRouter>
-      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="work" element={<Work />} />
+          <Route path="destinations" element={<Destinations />} />
+          <Route path="stars" element={<Stars />} />
+          <Route path="films" element={<Films />} />
+          <Route path="decades" element={<Decades />} />
+          <Route path="shop" element={<Shop />} />
           <Route path="about" element={<About />} />
-          <Route path="contact" element={<Contact />} />
-          <Route path="brand-strategy" element={<BrandStrategy />} />
-          <Route path="website-copy" element={<WebsiteCopy />} />
-          <Route path="editorial-campaigns" element={<EditorialCampaigns />} />
-          <Route path="work/:slug" element={<CaseStudy />} />
+          <Route path="newsletter" element={<Newsletter />} />
+          <Route path="articles/:slug" element={<Article />} />
         </Route>
       </Routes>
     </HashRouter>

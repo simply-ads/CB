@@ -1,99 +1,26 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>A.V. Editorial Heritage</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,100..1000&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              primary: "#C4785B",
-              cream: "#FAF7F2",
-              charcoal: "#2C2C2C",
-              terracotta: "#C4785B",
-              "med-blue": "#1A4B84",
-            },
-            fontFamily: {
-              display: ["Playfair Display", "serif"],
-              sans: ["DM Sans", "sans-serif"],
-            },
-            animation: {
-              marquee: 'marquee 40s linear infinite',
-              'marquee-reverse': 'marquee-reverse 40s linear infinite',
-            },
-            keyframes: {
-              marquee: {
-                '0%': { transform: 'translateX(0%)' },
-                '100%': { transform: 'translateX(-100%)' },
-              },
-              'marquee-reverse': {
-                '0%': { transform: 'translateX(-100%)' },
-                '100%': { transform: 'translateX(0%)' },
-              },
-            },
-            backgroundImage: {
-              'noise': "url('https://www.transparenttextures.com/patterns/felt.png')",
-            }
-          },
-        },
+    <title>Travel Old Hollywood</title>
+    <meta name="description" content="Travel inspiration from Hollywood's Golden Age." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Cormorant+Garamond:wght@400;500;600&family=Great+Vibes&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet" />
+    <script type="importmap">
+      {
+        "imports": {
+          "react/": "https://esm.sh/react@^19.2.4/",
+          "react": "https://esm.sh/react@^19.2.4",
+          "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+          "react-router-dom": "https://esm.sh/react-router-dom@^7.13.0"
+        }
       }
     </script>
-    <style>
-      body {
-        background-color: #FAF7F2;
-        color: #2C2C2C;
-      }
-      .font-display {
-        font-family: 'Playfair Display', serif;
-      }
-      .link-underline {
-          position: relative;
-          text-decoration: none;
-      }
-      .link-underline::after {
-          content: '';
-          position: absolute;
-          width: 0;
-          height: 1px;
-          bottom: -2px;
-          left: 0;
-          background-color: #C4785B;
-          transition: width 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-      }
-      .link-underline:hover::after {
-          width: 100%;
-      }
-      /* Hide scrollbar for clean aesthetic */
-      ::-webkit-scrollbar {
-          width: 8px;
-      }
-      ::-webkit-scrollbar-track {
-          background: #FAF7F2;
-      }
-      ::-webkit-scrollbar-thumb {
-          background: #2C2C2C; 
-          border-radius: 4px;
-      }
-    </style>
-  <script type="importmap">
-{
-  "imports": {
-    "react/": "https://esm.sh/react@^19.2.4/",
-    "react": "https://esm.sh/react@^19.2.4",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
-    "react-router-dom": "https://esm.sh/react-router-dom@^7.13.0",
-    "lucide-react": "https://esm.sh/lucide-react@^0.563.0"
-  }
-}
-</script>
-</head>
+  </head>
   <body>
     <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
   </body>
 </html>

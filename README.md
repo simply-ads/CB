@@ -18,3 +18,7 @@ View your app in AI Studio: https://ai.studio/apps/drive/1mG_Id3B4unPQqMyne0VK4N
 2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
 3. Run the app:
    `npm run dev`
+
+## Travel Old Hollywood brief
+
+See [`TRAVEL_OLD_HOLLYWOOD_BLUEPRINT.md`](./TRAVEL_OLD_HOLLYWOOD_BLUEPRINT.md) for the full implementation strategy and delivery roadmap based on the provided poster-style direction.
