@@ -22,3 +22,18 @@ View your app in AI Studio: https://ai.studio/apps/drive/1mG_Id3B4unPQqMyne0VK4N
 ## Travel Old Hollywood brief
 
 See [`TRAVEL_OLD_HOLLYWOOD_BLUEPRINT.md`](./TRAVEL_OLD_HOLLYWOOD_BLUEPRINT.md) for the full implementation strategy and delivery roadmap based on the provided poster-style direction.
+
+## Vercel deployment behavior (important)
+
+If your project is connected to GitHub, Vercel creates:
+
+- **Production deployments** from the configured Production Branch (usually `main`).
+- **Preview deployments** for non-production branches (for example `codex/create-vintage-style-website-for-travel-old-hollywood`).
+
+So if `https://cb-beta-topaz.vercel.app/` is attached as a **production domain**, it will keep showing the latest deployment from `main`.
+
+To view your branch changes, use the generated preview URL (for example `cb-f6lpdzl4m-simply-ads-projects.vercel.app`) or configure a **branch domain** in Vercel:
+
+1. Vercel Project → **Settings** → **Domains**.
+2. Add/attach a domain to the specific Git branch (branch domain), or
+3. Change the **Production Branch** in Project Settings → Git if you want that branch to drive production.
