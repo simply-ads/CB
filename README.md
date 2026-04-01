@@ -37,3 +37,15 @@ To view your branch changes, use the generated preview URL (for example `cb-f6lp
 1. Vercel Project → **Settings** → **Domains**.
 2. Add/attach a domain to the specific Git branch (branch domain), or
 3. Change the **Production Branch** in Project Settings → Git if you want that branch to drive production.
+
+
+## Why preview can still look old
+
+This repository currently contains **two apps**:
+
+- Root (`/`) = Vite app (Travel Old Hollywood changes)
+- `nextjs-app/` = older Next.js app
+
+If Vercel Project **Root Directory** is set to `nextjs-app`, preview deployments will continue to show the older Next.js site even when this branch is up to date.
+
+To preview the new Travel Old Hollywood app, set Vercel Root Directory to `/` and use the root `vercel.json` (`framework: vite`, `outputDirectory: dist`).
