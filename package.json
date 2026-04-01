@@ -1,0 +1,10 @@
+{
+  "name": "cb-workspace",
+  "private": true,
+  "scripts": {
+    "install:oht": "npm --prefix oht install",
+    "dev": "npm --prefix oht run dev",
+    "build": "npm --prefix oht run build",
+    "preview": "npm --prefix oht run preview"
+  }
+}

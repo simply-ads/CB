@@ -13,6 +13,13 @@ npm install
 npm run dev
 ```
 
+## Or run from repo root
+
+```bash
+npm run install:oht
+npm run dev
+```
+
 ## Deploy `oht/` on Vercel
 
 In Vercel project settings set:
