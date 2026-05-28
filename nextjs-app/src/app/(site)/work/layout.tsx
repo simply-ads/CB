@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Work — Selected Editorial",
+  title: "Work — Claire Webb",
   description:
-    "A curated collection of brand narratives, heritage storytelling, and verbal identities for the world's most evocative destinations.",
+    "Selected travel content work — customer magazines, market reports, website copy and editorial — measured in bookings, enquiries and sign-ups.",
 };
 
 export default function WorkLayout({

@@ -1,23 +1,10 @@
 import type { Metadata } from "next";
-import { DM_Sans, Playfair_Display } from "next/font/google";
 import "./globals.css";
 
-const dmSans = DM_Sans({
-  variable: "--font-dm-sans",
-  subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900", "1000"],
-});
-
-const playfairDisplay = Playfair_Display({
-  variable: "--font-playfair",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800", "900"],
-  style: ["normal", "italic"],
-});
-
 export const metadata: Metadata = {
-  title: "Adam Blackwell — Copywriter",
-  description: "A luxury copywriting studio portfolio featuring high-end editorial design, typography-driven layouts, and immersive scrolling experiences.",
+  title: "Claire Webb — Travel content marketing",
+  description:
+    "Freelance content marketing consultant for travel and tourism brands. Website copy, customer magazines, market reports and podcasts that get read, and get acted on.",
 };
 
 export default function RootLayout({
@@ -27,11 +14,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${dmSans.variable} ${playfairDisplay.variable} antialiased`}
-      >
-        {children}
-      </body>
+      <body className="antialiased">{children}</body>
     </html>
   );
 }

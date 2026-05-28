@@ -1,96 +1,56 @@
-export default function Contact() {
+import { reader } from "@/lib/reader";
+import Accented from "@/components/Accented";
+
+export default async function Contact() {
+  const contact = await reader.singletons.contact.read();
+  const email = contact?.email ?? "claire@clairewebb.co.uk";
+
   return (
-    <div className="min-h-screen flex flex-col justify-center pt-32 pb-24 relative overflow-hidden">
-      {/* Background texture SVG */}
-      <div className="absolute inset-0 z-0 pointer-events-none overflow-visible opacity-30">
-        <svg
-          className="w-full h-full"
-          fill="none"
-          viewBox="0 0 1200 800"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            className="opacity-40"
-            d="M100,600 C300,500 400,200 600,300 C800,400 900,100 1100,200"
-            stroke="#C4785B"
-            strokeDasharray="12 12"
-            strokeLinecap="round"
-            strokeWidth="2.5"
-          ></path>
-        </svg>
-      </div>
-
-      <div className="max-w-6xl mx-auto px-6 text-center relative z-10">
-        <span className="uppercase tracking-[0.5em] text-[12px] font-bold text-terracotta mb-12 block">
-          Get in Touch
-        </span>
-
-        <h1 className="text-7xl md:text-[10rem] font-display mb-16 tracking-tighter leading-[0.9]">
-          Let&apos;s write <br />
-          <span className="italic font-normal">the next chapter.</span>
-        </h1>
-
-        <div className="space-y-12">
-          <p className="text-xl md:text-2xl font-light text-charcoal/60 max-w-2xl mx-auto leading-relaxed">
-            Whether you&apos;re unveiling a new boutique hideaway or redefining
-            a legacy brand, I&apos;m here to find the words that matter.
-          </p>
-
-          <a
-            href="mailto:hello@alexandrav.co"
-            className="text-3xl md:text-6xl font-display text-terracotta font-bold link-underline inline-block mt-8"
-          >
-            hello@alexandrav.co
-          </a>
-        </div>
-
-        <div className="mt-24 grid grid-cols-1 md:grid-cols-3 gap-8 text-[11px] font-bold uppercase tracking-[0.4em] text-charcoal/40 border-t border-charcoal/5 pt-12">
+    <section className="contact !pt-32 min-h-[70vh] flex items-center">
+      <div className="container w-full">
+        <div className="contact-grid">
           <div>
-            <span className="block text-terracotta mb-2">Location</span>
-            Barcelona, Spain
+            <div className="eyebrow eyebrow--rule mb-7">{contact?.eyebrow ?? "Start a project"}</div>
+            <h2 className="fr-display text-[clamp(44px,6.4vw,96px)] leading-[0.96] tracking-[-0.02em]">
+              <Accented
+                text={contact?.headline ?? "A travel content specialist who makes your life significantly easier."}
+                accent={contact?.headlineAccent ?? "makes your life significantly easier"}
+              />
+            </h2>
+            <p className="sub">
+              {contact?.body ??
+                "Tell me roughly what you need. Rough scope is fine — I reply within two working days with whether I can help, a rate, and the next sensible step."}
+            </p>
           </div>
-          <div>
-            <span className="block text-terracotta mb-2">Availability</span>
-            Q3 / Q4 2024
-          </div>
-          <div>
-            <span className="block text-terracotta mb-2">Social</span>
-            <div className="flex justify-center gap-6">
-              <a
-                href="#"
-                className="hover:text-charcoal transition-colors"
-              >
-                IG
-              </a>
-              <a
-                href="#"
-                className="hover:text-charcoal transition-colors"
-              >
-                LI
-              </a>
+
+          <div className="contact-card">
+            <div className="row">
+              <span className="k">Write to</span>
+              <span className="v"><a href={`mailto:${email}`}>{email}</a></span>
             </div>
+            <div className="row">
+              <span className="k">Based in</span>
+              <span className="v"><Accented text={contact?.basedIn ?? "UK · working worldwide"} accent="UK" /></span>
+            </div>
+            <div className="row">
+              <span className="k">Response</span>
+              <span className="v">{contact?.response ?? "Within two working days"}</span>
+            </div>
+            <div className="row">
+              <span className="k">Currently</span>
+              <span className="v"><Accented text={contact?.availability ?? "Booking Q3 2026"} accent="Q3 2026" /></span>
+            </div>
+            <a className="btn btn--azure mt-6 w-full justify-center" href={`mailto:${email}`}>
+              Send a brief <span className="arrow">↗</span>
+            </a>
+            {contact?.linkedinUrl && (
+              <a className="block mt-4 text-center fr-label text-[11px] tracking-[0.2em] uppercase text-ink-2 hover:text-azure transition-colors" href={contact.linkedinUrl}>
+                Or find me on LinkedIn ↗
+              </a>
+            )}
           </div>
         </div>
       </div>
-
-      {/* Decorative Bottom Graphic */}
-      <div className="absolute bottom-0 left-0 w-full h-48 pointer-events-none overflow-hidden z-[-1]">
-        <svg
-          className="w-full h-full"
-          fill="none"
-          viewBox="0 0 1440 300"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M-50,50 C200,80 400,280 700,180 C1000,80 1200,220 1500,200"
-            opacity="0.4"
-            stroke="#C4785B"
-            strokeDasharray="8 8"
-            strokeLinecap="round"
-            strokeWidth="1.5"
-          ></path>
-        </svg>
-      </div>
-    </div>
+    </section>
   );
 }

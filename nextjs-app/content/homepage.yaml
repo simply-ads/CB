@@ -1,22 +1,88 @@
-heroHeadline: Words that make people pack a bag.
-heroSubtext: Editorial Copywriter for Global Hospitality
-introBody: >-
-  In an era of visual saturation, the right words are the ultimate luxury. I
-  craft the verbal DNA of world-class properties.
-introCTA: See the work →
+heroEyebrow: Freelance travel content marketing
+heroHeadline: >-
+  Travel content that feels like the good old days of going somewhere — and
+  still gets them to book.
+heroAccent: good old days
+standfirstLeftLabel: By the writer
+standfirstLeft: >-
+  I'm a freelance content marketing consultant for travel and tourism brands of
+  every shape — a day-tour operator in Jordan, a New York walking-tour company,
+  a European villa collection, a Caribbean sailing line. I write, plan and
+  produce content for them: website copy, customer magazines, market reports,
+  podcasts, lead magnets.
+standfirstRightLabel: The brief, always
+standfirstRight: >-
+  Whatever the format or the destination, the brief stays the same. Make the
+  place feel enchanting, glamorous and worth the journey — then make it easy to
+  book. Words that get read, and words that get acted on.
+heroPhotos:
+  - tag: Jordan · Day tours
+    name: The road to Petra
+    mood: ph-petra
+  - tag: New York · City walks
+    name: Uptown
+    mood: ph-nyc
+  - tag: Caribbean · Sailing
+    name: At anchor
+    mood: ph-carib
+clientsLabel: Selected clients, 2014 – 2026
+clients:
+  - name: Intrepid Travel
+    emphasis: false
+  - name: Atlas Obscura
+    emphasis: false
+  - name: Kyero
+    emphasis: true
+  - name: Vintage Travel
+    emphasis: false
+  - name: NYT Journeys
+    emphasis: false
+  - name: Cruise Nation
+    emphasis: false
+  - name: Tourpreneur
+    emphasis: true
+  - name: Urban Adventures
+    emphasis: false
+workHeadline: Selected work — measured in bookings, enquiries and sign-ups.
+workAccent: measured
+workCount: 06 of 40+
 testimonialQuote: >-
-  Her words don't just describe a place; they transport you there before you've
-  even booked your ticket.
-testimonialAuthor: Managing Director
-testimonialRole: The Azure Retreat
-footerCTA: Let's write the next chapter.
-footerEmail: hello@claireswebsite.com
-marqueeItems:
-  - Tour Descriptions
-  - Luxury Travel Content
-  - Property Descriptions
-  - Editorial
-  - Storytelling
-  - Audience Research
-  - Content Strategy
-  - Tone of Voice
+  Claire is a one-woman content swiss army knife. She overhauled our advice
+  articles and location guides, producing journalistic-quality pieces that drove
+  a tenfold increase in traffic.
+testimonialHighlight: tenfold increase in traffic.
+testimonialAuthor: Jennifer Down
+testimonialRole: Performance Marketing Manager · Kyero
+servicesTitle: The contents.
+servicesMeta: Five things I'm good at — and a few I won't pretend to be
+services:
+  - title: Website & destination copy.
+    accent: destination
+    dek: >-
+      Landing pages, destination guides, hotel and experience descriptions
+      written to inspire and convert.
+    link: ''
+  - title: Magazines & print editorial.
+    accent: print editorial
+    dek: >-
+      Customer magazines, lookbooks, 50–150pp buying guides — the work most
+      freelancers can't credibly pitch for.
+    link: ''
+  - title: B2B reports & lead generation.
+    accent: lead generation
+    dek: >-
+      Market reports, white papers, by-lines, sales-enablement content. Position
+      you as the authority.
+    link: ''
+  - title: Podcasts & interview content.
+    accent: interview content
+    dek: >-
+      Series concept, editorial planning, interviewing as a service, episode
+      scripting and repurposing.
+    link: ''
+  - title: Strategy, audits & training.
+    accent: training
+    dek: >-
+      Content audits, editorial planning, SEO-informed calendars, and travel
+      copywriting workshops.
+    link: ''

@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Contact — Get in Touch",
+  title: "Contact — Claire Webb",
   description:
-    "Whether you're unveiling a new boutique hideaway or redefining a legacy brand, I'm here to find the words that matter.",
+    "Start a project. Tell me roughly what you need and I'll reply within two working days with whether I can help, a rate, and the next step.",
 };
 
 export default function ContactLayout({

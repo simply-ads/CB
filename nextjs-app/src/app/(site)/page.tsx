@@ -1,360 +1,302 @@
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
 import { reader } from "@/lib/reader";
+import IllustrationBand from "@/components/IllustrationBand";
+import Accented from "@/components/Accented";
+import { paras } from "@/lib/text";
 
-const MarqueeContent = ({ items }: { items: readonly string[] }) => (
-  <div className="flex items-center text-5xl md:text-7xl font-display italic text-terracotta uppercase">
-    {items.slice(0, 4).map((item, i) => (
-      <span key={i}>
-        <span className="mx-8">{item}</span>{" "}
-        <span className="text-2xl">{i % 2 === 0 ? "\u2726" : "\u25C6"}</span>
-      </span>
-    ))}
-  </div>
-);
-
-const MarqueeContentReverse = ({ items }: { items: readonly string[] }) => (
-  <div className="flex items-center text-3xl md:text-5xl font-display text-charcoal uppercase">
-    {items.slice(4, 8).map((item, i) => (
-      <span key={i}>
-        <span className="mx-8">{item}</span>{" "}
-        <span className="text-xl">{i % 2 === 0 ? "\u25C6" : "\u2726"}</span>
-      </span>
-    ))}
-  </div>
-);
+const SIZE_CYCLE = ["work--lg", "work--md", "work--sm", "work--sm", "work--sm", "work--wide", "work--wide"];
 
 export default async function Home() {
-  const homepage = await reader.singletons.homepage.read();
+  const home = await reader.singletons.homepage.read();
+  const feature = await reader.singletons.featuredCase.read();
   const allProjects = await reader.collections.projects.all();
-  const featuredProjects = allProjects
+
+  const featured = allProjects
     .filter((p) => p.entry.featured)
     .sort((a, b) => (a.entry.sortOrder ?? 0) - (b.entry.sortOrder ?? 0));
 
-  const marqueeItems = homepage?.marqueeItems ?? [
-    "Verbal Identity",
-    "Luxury Travel",
-    "Brand Storytelling",
-    "Editorial Direction",
-    "Mediterranean Heritage",
-    "Signature Tone",
-    "Content Strategy",
-    "Global Reach",
-  ];
+  const heroPhotos =
+    home?.heroPhotos && home.heroPhotos.length > 0
+      ? home.heroPhotos
+      : [
+          { tag: "Jordan · Day tours", name: "The road to Petra", mood: "ph-petra" },
+          { tag: "New York · City walks", name: "Uptown", mood: "ph-nyc" },
+          { tag: "Caribbean · Sailing", name: "At anchor", mood: "ph-carib" },
+        ];
 
-  const testimonialQuote =
-    homepage?.testimonialQuote ??
-    "Her words don\u2019t just describe a place; they transport you there before you\u2019ve even booked your ticket.";
-  const footerEmail = homepage?.footerEmail ?? "hello@alexandrav.co";
+  const clients =
+    home?.clients && home.clients.length > 0
+      ? home.clients
+      : [
+          { name: "Intrepid Travel", emphasis: false },
+          { name: "Atlas Obscura", emphasis: false },
+          { name: "Kyero", emphasis: true },
+          { name: "Vintage Travel", emphasis: false },
+          { name: "NYT Journeys", emphasis: false },
+          { name: "Cruise Nation", emphasis: false },
+          { name: "Tourpreneur", emphasis: true },
+          { name: "Urban Adventures", emphasis: false },
+        ];
 
-  // Map featured projects to image URLs (fallback to Unsplash placeholders)
-  const projectImages: Record<string, string> = {
-    "azure-retreat":
-      "https://images.unsplash.com/photo-1533105079780-92b9be482077?q=80&w=2574&auto=format&fit=crop",
-    "palazzo-segreto":
-      "https://images.unsplash.com/photo-1541447271487-09612b8f49ac?q=80&w=2671&auto=format&fit=crop",
-    "nomad-spirits":
-      "https://images.unsplash.com/photo-1540541338287-41700207dee6?q=80&w=2670&auto=format&fit=crop",
-  };
+  const services =
+    home?.services && home.services.length > 0
+      ? home.services
+      : [
+          { title: "Website & destination copy.", accent: "destination", dek: "Landing pages, destination guides, hotel and experience descriptions written to inspire and convert.", link: "" },
+          { title: "Magazines & print editorial.", accent: "print editorial", dek: "Customer magazines, lookbooks, 50–150pp buying guides — the work most freelancers can't credibly pitch for.", link: "" },
+          { title: "B2B reports & lead generation.", accent: "lead generation", dek: "Market reports, white papers, by-lines, sales-enablement content. Position you as the authority.", link: "" },
+          { title: "Podcasts & interview content.", accent: "interview content", dek: "Series concept, editorial planning, interviewing as a service, episode scripting and repurposing.", link: "" },
+          { title: "Strategy, audits & training.", accent: "training", dek: "Content audits, editorial planning, SEO-informed calendars, and travel copywriting workshops.", link: "" },
+        ];
+
+  const featureNumbers =
+    feature?.numbers && feature.numbers.length > 0
+      ? feature.numbers
+      : [
+          { number: "+22%", label: "Increase in bookings post-mailing" },
+          { number: "8,000", label: "Copies printed and mailed to customers" },
+          { number: "150pp", label: "Of original editorial — end to end" },
+          { number: "04", label: "Countries covered in depth" },
+        ];
+
+  const featBodyLeft = paras(feature?.bodyLeft);
+  const featBodyRight = paras(feature?.bodyRight);
 
   return (
     <>
-      {/* Hero Section */}
-      <header className="relative h-screen min-h-[800px] w-full flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <img
-            alt="Luxury Landscape"
-            className="w-full h-full object-cover grayscale opacity-30"
-            src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?q=80&w=2572&auto=format&fit=crop"
-          />
-          <div className="absolute inset-0 bg-cream/60"></div>
-        </div>
-
-        <div className="relative z-10 text-center px-6 animate-fade-in-up">
-          <h1 className="text-6xl md:text-[10rem] font-display text-charcoal tracking-tighter leading-[0.9]">
-            Narratives <br />
-            <span className="italic font-normal text-terracotta">
-              of Escape.
-            </span>
+      {/* ===== HERO ===== */}
+      <section className="pt-20" id="home">
+        <div className="container">
+          <div className="eyebrow eyebrow--rule mb-8">{home?.heroEyebrow ?? "Freelance travel content marketing"}</div>
+          <h1
+            className="fr-display text-[clamp(56px,7.4vw,116px)] leading-[0.98] tracking-[-0.02em] text-ink max-w-[1160px]"
+            style={{ textWrap: "balance" }}
+          >
+            <Accented
+              text={home?.heroHeadline ?? "Travel content that feels like the good old days of going somewhere — and still gets them to book."}
+              accent={home?.heroAccent ?? "good old days"}
+            />
           </h1>
-          <p className="mt-12 text-charcoal/60 uppercase tracking-[0.5em] text-[10px] font-bold">
-            {homepage?.heroSubtext ?? "Editorial Copywriter for Global Hospitality"}
-          </p>
-        </div>
 
-        {/* Decorative squiggle */}
-        <div className="absolute bottom-20 left-1/4 w-48 text-terracotta/40 pointer-events-none">
-          <svg
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.5"
-            viewBox="0 0 200 40"
-          >
-            <path
-              d="M0 20 Q 25 5, 50 20 T 100 20 T 150 20 T 200 20"
-              strokeLinecap="round"
-            ></path>
-          </svg>
-        </div>
-      </header>
-
-      {/* Marquee Section */}
-      <section className="py-12 border-y border-charcoal/10 relative overflow-hidden bg-cream">
-        <div className="space-y-4">
-          <div className="flex overflow-hidden group">
-            <div className="flex animate-marquee whitespace-nowrap">
-              <MarqueeContent items={marqueeItems} />
-              <MarqueeContent items={marqueeItems} />
-            </div>
-          </div>
-          <div className="flex overflow-hidden group opacity-60">
-            <div className="flex animate-marquee-reverse whitespace-nowrap">
-              <MarqueeContentReverse items={marqueeItems} />
-              <MarqueeContentReverse items={marqueeItems} />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Selected Works Preview */}
-      <main className="py-24 px-6 md:px-12 lg:px-24 max-w-screen-2xl mx-auto relative">
-        {/* Background Doodles */}
-        <div className="absolute inset-0 z-0 pointer-events-none overflow-visible opacity-40">
-          <svg
-            className="w-full h-full"
-            fill="none"
-            viewBox="0 0 1200 1000"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              className="opacity-60"
-              d="M50,120 C100,100 150,250 100,350 C50,450 300,550 600,450 C900,350 1000,500 1100,600"
-              stroke="#C4785B"
-              strokeDasharray="10 10"
-              strokeLinecap="round"
-              strokeWidth="2"
-            ></path>
-          </svg>
-        </div>
-
-        <div className="mb-16 max-w-5xl relative z-10">
-          <span className="uppercase tracking-[0.4em] text-[10px] font-bold text-terracotta mb-4 block">
-            The Portfolio
-          </span>
-          <h2 className="text-5xl md:text-8xl lg:text-[8rem] font-display mb-8">
-            Selected Works.
-          </h2>
-        </div>
-
-        {/* Project 1: First featured large project */}
-        <div className="grid grid-cols-1 md:grid-cols-10 gap-12 mb-32 relative z-10">
-          {featuredProjects[0] && (
-            <Link
-              href={`/work/${featuredProjects[0].slug}`}
-              className="md:col-span-7 group cursor-pointer relative block"
-            >
-              <div className="absolute -left-12 -top-12 w-32 h-32 text-terracotta z-20 pointer-events-none opacity-80 -rotate-12 hidden md:block">
-                <svg
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  viewBox="0 0 100 100"
-                >
-                  <path d="M50,20 C30,20 15,35 15,55 C15,75 35,90 50,90 C65,90 85,75 85,55 C85,35 70,20 50,20 Z"></path>
-                  <path d="M50,20 Q55,10 65,15" strokeLinecap="round"></path>
-                  <path d="M52,22 L52.5,22 M48,22 L48.5,22" strokeLinecap="round" strokeWidth="3"></path>
-                  <path d="M45,45 L45.5,45 M60,55 L60.5,55 M48,70 L48.5,70 M35,58 L35.5,58" strokeLinecap="round" strokeWidth="2"></path>
-                </svg>
-              </div>
-
-              <div className="overflow-hidden aspect-[16/10] mb-6 relative">
-                <img
-                  alt={featuredProjects[0].entry.title}
-                  className="w-full h-full object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-105"
-                  src={
-                    featuredProjects[0].entry.featuredImage ||
-                    projectImages[featuredProjects[0].slug] ||
-                    "https://images.unsplash.com/photo-1533105079780-92b9be482077?q=80&w=2574&auto=format&fit=crop"
-                  }
-                />
-                <div className="absolute inset-0 bg-terracotta/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-              </div>
-              <div className="max-w-2xl">
-                <h3 className="text-4xl md:text-5xl font-display mb-4 link-underline inline-block">
-                  {featuredProjects[0].entry.title}
-                </h3>
-                <p className="text-lg md:text-xl text-charcoal/60 font-light leading-relaxed">
-                  {featuredProjects[0].entry.summary}
-                </p>
-              </div>
-            </Link>
-          )}
-
-          <div className="md:col-span-3 flex flex-col justify-end pb-12">
-            <div className="p-8 border-l border-terracotta/20 italic font-display text-xl md:text-2xl text-charcoal/70 relative">
-              <span className="absolute -top-6 -right-0 text-6xl text-terracotta/20 font-serif">
-                &ldquo;
-              </span>
-              {testimonialQuote}
-            </div>
-          </div>
-        </div>
-
-        {/* Project 2 & 3 */}
-        <div className="grid grid-cols-1 md:grid-cols-10 gap-12 relative z-10">
-          {featuredProjects[1] && (
-            <Link
-              href={`/work/${featuredProjects[1].slug}`}
-              className="md:col-span-4 space-y-4 group cursor-pointer block"
-            >
-              <div className="overflow-hidden aspect-[3/4] mb-6 relative">
-                <img
-                  alt={featuredProjects[1].entry.title}
-                  className="w-full h-full object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-105"
-                  src={
-                    featuredProjects[1].entry.featuredImage ||
-                    projectImages[featuredProjects[1].slug] ||
-                    "https://images.unsplash.com/photo-1541447271487-09612b8f49ac?q=80&w=2671&auto=format&fit=crop"
-                  }
-                />
-                <div className="absolute inset-0 bg-terracotta/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-              </div>
-              <h3 className="text-3xl font-display mb-2 link-underline inline-block">
-                {featuredProjects[1].entry.title}
-              </h3>
-              <p className="text-xs text-charcoal/60 uppercase tracking-widest">
-                {featuredProjects[1].entry.category}
+          <div className="grid grid-cols-1 md:grid-cols-[1fr_1.4fr] gap-12 md:gap-[72px] mt-13 pt-8 border-t border-ink items-start" style={{ marginTop: 52 }}>
+            <div>
+              <div className="eyebrow--ink eyebrow mb-3">{home?.standfirstLeftLabel ?? "By the writer"}</div>
+              <p className="fr-subhead text-[21px] leading-[1.5] text-ink m-0">
+                <span className="dropcap">{(home?.standfirstLeft ?? "I")[0]}</span>
+                {(home?.standfirstLeft ?? "I'm a freelance content marketing consultant for travel and tourism brands of every shape — a day-tour operator in Jordan, a New York walking-tour company, a European villa collection, a Caribbean sailing line. I write, plan and produce content for them: website copy, customer magazines, market reports, podcasts, lead magnets.").slice(1)}
               </p>
-            </Link>
-          )}
-
-          {featuredProjects[2] && (
-            <Link
-              href={`/work/${featuredProjects[2].slug}`}
-              className="md:col-span-6 group cursor-pointer relative pt-12 block"
-            >
-              <div className="overflow-hidden aspect-[16/9] mb-6 relative">
-                <img
-                  alt={featuredProjects[2].entry.title}
-                  className="w-full h-full object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-105"
-                  src={
-                    featuredProjects[2].entry.featuredImage ||
-                    projectImages[featuredProjects[2].slug] ||
-                    "https://images.unsplash.com/photo-1540541338287-41700207dee6?q=80&w=2670&auto=format&fit=crop"
-                  }
+            </div>
+            <div>
+              <div className="eyebrow--ink eyebrow mb-3">{home?.standfirstRightLabel ?? "The brief, always"}</div>
+              <p className="fr-subhead text-[21px] leading-[1.5] text-ink m-0">
+                <Accented
+                  text={home?.standfirstRight ?? "Whatever the format or the destination, the brief stays the same. Make the place feel enchanting, glamorous and worth the journey — then make it easy to book. Words that get read, and words that get acted on."}
+                  accent="enchanting, glamorous and worth the journey"
                 />
-                <div className="absolute inset-0 bg-terracotta/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+              </p>
+              <div className="mt-7 flex gap-3 flex-wrap items-center">
+                <Link href="/contact" className="btn btn--azure">Start a project <span className="arrow">↗</span></Link>
+                <Link href="/work" className="btn btn--ghost">See the selected work</Link>
               </div>
-              <div className="max-w-xl">
-                <h3 className="text-4xl md:text-5xl font-display mb-4 link-underline inline-block">
-                  {featuredProjects[2].entry.title}
-                </h3>
-                <p className="text-lg text-charcoal/60 font-light leading-relaxed">
-                  {featuredProjects[2].entry.summary}
-                </p>
-              </div>
-            </Link>
-          )}
-        </div>
-      </main>
-
-      {/* Services Section / The New Luxury */}
-      <section className="py-24 bg-charcoal text-cream relative overflow-hidden">
-        <div className="absolute inset-0 z-0 pointer-events-none opacity-20">
-          <svg className="w-full h-full" fill="none" viewBox="0 0 1000 400">
-            <path
-              d="M100 300 C 250 50, 750 50, 900 100"
-              stroke="#C4785B"
-              strokeWidth="2"
-              strokeDasharray="6 6"
-            ></path>
-          </svg>
-        </div>
-
-        <div className="max-w-screen-2xl mx-auto px-6 md:px-24 grid grid-cols-1 lg:grid-cols-2 gap-16 relative z-10">
-          <div className="flex flex-col justify-center">
-            <h2 className="text-6xl md:text-8xl font-display mb-10 leading-[0.9] tracking-tighter">
-              The New <br />
-              <span className="italic text-terracotta">Luxury.</span>
-            </h2>
-            <p className="text-xl md:text-2xl font-light text-cream/60 leading-relaxed mb-12 max-w-lg">
-              {homepage?.introBody ??
-                "In an era of visual saturation, the right words are the ultimate luxury. I craft the verbal DNA of world-class properties."}
-            </p>
-
-            <div className="space-y-6">
-              <Link
-                href="/brand-strategy"
-                className="group flex items-center justify-between border-b border-white/10 pb-4 hover:border-terracotta transition-colors cursor-pointer"
-              >
-                <span className="text-2xl md:text-3xl font-display italic">
-                  Brand Strategy
-                </span>
-                <ArrowUpRight className="text-terracotta opacity-0 group-hover:opacity-100 transition-opacity" />
-              </Link>
-              <Link
-                href="/website-copy"
-                className="group flex items-center justify-between border-b border-white/10 pb-4 hover:border-terracotta transition-colors cursor-pointer"
-              >
-                <span className="text-2xl md:text-3xl font-display italic">
-                  Website Copy
-                </span>
-                <ArrowUpRight className="text-terracotta opacity-0 group-hover:opacity-100 transition-opacity" />
-              </Link>
-              <Link
-                href="/editorial-campaigns"
-                className="group flex items-center justify-between border-b border-white/10 pb-4 hover:border-terracotta transition-colors cursor-pointer"
-              >
-                <span className="text-2xl md:text-3xl font-display italic">
-                  Editorial Campaigns
-                </span>
-                <ArrowUpRight className="text-terracotta opacity-0 group-hover:opacity-100 transition-opacity" />
-              </Link>
             </div>
           </div>
 
-          <div className="relative mt-8 lg:mt-0">
-            <div className="aspect-[3/4] overflow-hidden grayscale brightness-75 relative z-10">
-              <img
-                alt="Luxury detail"
-                className="w-full h-full object-cover"
-                src="https://images.unsplash.com/photo-1549294413-26f195200c16?q=80&w=2564&auto=format&fit=crop"
-              />
-            </div>
-            <div className="absolute -bottom-10 -right-10 w-32 h-32 md:w-40 md:h-40 bg-terracotta text-cream flex items-center justify-center italic text-3xl font-display shadow-2xl z-20">
-              CB.
-            </div>
+          {/* Hero photo row */}
+          <div className="grid grid-cols-1 sm:grid-cols-[1.5fr_1fr_1fr] gap-4 mt-[72px]">
+            {heroPhotos.slice(0, 3).map((p, i) => (
+              <figure
+                key={i}
+                className={`photo ${p.mood ?? "ph-villa"} m-0 ${i === 0 ? "aspect-[5/4]" : "aspect-[3/4]"}`}
+              >
+                <div className="scrim" />
+                <figcaption className="plate-label">
+                  <div className="tag">{p.tag}</div>
+                  <div className="name">{p.name}</div>
+                </figcaption>
+              </figure>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Inquiry Call to Action */}
-      <section className="py-32 text-center px-6 relative bg-cream overflow-hidden">
-        <div className="max-w-4xl mx-auto relative z-10">
-          <span className="uppercase tracking-[0.4em] text-[10px] font-bold text-terracotta mb-8 block">
-            Inquiries
-          </span>
-          <h2 className="text-6xl md:text-[8rem] font-display mb-12 tracking-tighter leading-[0.9]">
-            {homepage?.footerCTA ? (
-              <>{homepage.footerCTA}</>
-            ) : (
-              <>
-                Let&apos;s write <br />
-                <span className="italic font-normal">the next chapter.</span>
-              </>
-            )}
+      {/* ===== ILLUSTRATION BAND ===== */}
+      <div className="mt-24">
+        <IllustrationBand />
+      </div>
+
+      {/* ===== FEATURED-IN ===== */}
+      <section className="featured-in">
+        <div className="container inner">
+          <div className="label">{home?.clientsLabel ?? "Selected clients, 2014 – 2026"}</div>
+          <div className="clients">
+            {clients.map((c, i) => (
+              <span key={i}>{c.emphasis ? <em>{c.name}</em> : c.name}</span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ===== WORK PREVIEW ===== */}
+      <section className="section" id="work">
+        <div className="container">
+          <div className="section-head">
+            <div className="toc-ref"><b>The Portfolio</b>{home?.workCount ?? "06 of 40+"}</div>
+            <div>
+              <h2>
+                <Accented
+                  text={home?.workHeadline ?? "Selected work — measured in bookings, enquiries and sign-ups."}
+                  accent={home?.workAccent ?? "measured"}
+                />
+              </h2>
+            </div>
+          </div>
+
+          <div className="work-grid">
+            {featured.slice(0, 7).map((p, i) => {
+              const e = p.entry;
+              const size = e.featuredSize || SIZE_CYCLE[i] || "work--md";
+              const showDek = size === "work--lg" || size === "work--wide";
+              return (
+                <Link key={p.slug} href={`/work/${p.slug}`} className={`work-card ${size}`}>
+                  <div className={`work-photo ${e.mood ?? "ph-villa"}`}>
+                    <div className="scrim" />
+                    {e.featuredImage && <img src={e.featuredImage} alt={e.title} />}
+                    {!e.featuredImage && (
+                      <div className="placeholder">
+                        <div>
+                          <div className="tag">{e.plateTag ?? e.category}</div>
+                          <div className="name">{e.plateName ?? e.client ?? e.title}</div>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                  <div className="work-caption">
+                    <span>{e.client ? `${e.client} · ${e.category ?? ""}` : e.category}</span>
+                    <span className="year">{e.year}</span>
+                  </div>
+                  <div className="work-title">
+                    <Accented text={e.title} accent={e.titleAccent} />
+                  </div>
+                  {showDek && e.summary && (
+                    <div className="work-dek">
+                      <Accented text={e.summary} accent={e.summaryAccent} />
+                    </div>
+                  )}
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* ===== FEATURED CASE ===== */}
+      <section className="feature">
+        <div className="container">
+          <div className="feature-eyebrow-wrap"><div className="feature-eyebrow">{feature?.eyebrow ?? "Feature · Plate 01"}</div></div>
+          <h2 className="feature-title">
+            <Accented
+              text={feature?.title ?? "The villa magazine that brought back 22% more bookings."}
+              accent={feature?.titleAccent ?? "22% more bookings"}
+            />
           </h2>
-          <a
-            href={`mailto:${footerEmail}`}
-            className="text-2xl md:text-4xl font-display link-underline italic"
-          >
-            {footerEmail}
-          </a>
-          <p className="mt-16 text-charcoal/40 text-xs uppercase tracking-[0.3em]">
-            Based in Barcelona &mdash; Working Worldwide
-          </p>
+
+          <figure className={`feature-cover ${feature?.coverMood ?? "ph-azure"}`}>
+            <div className="scrim" />
+            <figcaption className="plate-label">
+              <div className="tag">{feature?.coverTag ?? "Vintage Travel · Magazine · 150pp"}</div>
+              <div className="name">{feature?.coverName ?? "Contents spread"}</div>
+            </figcaption>
+          </figure>
+
+          <div className="feature-body">
+            <div>
+              {(featBodyLeft.length ? featBodyLeft : [
+                "Vintage Travel asked for a customer magazine that would inspire existing customers to book again — without ever feeling like a sales brochure.",
+              ]).map((para, i) => (
+                <p key={i} className={i === 0 ? "has-dropcap" : ""}>{para}</p>
+              ))}
+            </div>
+            <div>
+              <blockquote className="feature-pull">
+                &ldquo;{feature?.pull ?? "The aim was to spark ideas, build trust and gently guide readers towards booking. The magazine did all three — and Vintage saw bookings rise 22% in the months that followed."}&rdquo;
+              </blockquote>
+              {(featBodyRight.length ? featBodyRight : []).map((para, i) => (
+                <p key={i}>{para}</p>
+              ))}
+            </div>
+          </div>
+
+          <div className="feature-numbers">
+            {featureNumbers.map((n, i) => (
+              <div className="num" key={i}>
+                <div className="n">{n.number}</div>
+                <div className="l">{n.label}</div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
+
+      {/* ===== SERVICES TOC ===== */}
+      <section className="toc-section" id="services">
+        <div className="container">
+          <h2>{home?.servicesTitle ?? "The contents."}</h2>
+          <div className="toc-meta">{home?.servicesMeta ?? "Five things I'm good at — and a few I won't pretend to be"}</div>
+          <div className="toc-list">
+            {services.map((s, i) => {
+              const Inner = (
+                <>
+                  <div className="n">{String(i + 1).padStart(2, "0")}</div>
+                  <div className="title"><Accented text={s.title} accent={s.accent} /></div>
+                  <div className="dek">{s.dek}</div>
+                  <div className="page">↗</div>
+                </>
+              );
+              return s.link ? (
+                <Link key={i} href={s.link} className="toc-item">{Inner}</Link>
+              ) : (
+                <div key={i} className="toc-item">{Inner}</div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* ===== TESTIMONIAL ===== */}
+      <section className="quote-section">
+        <svg className="quote-deco" style={{ top: 28, right: 48 }} width="170" height="170" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <circle cx="50" cy="50" r="40" />
+          <path d="M50 22 L 61 50 L 50 78 L 39 50 Z" />
+          <line x1="50" y1="6" x2="50" y2="14" /><line x1="50" y1="86" x2="50" y2="94" />
+          <line x1="6" y1="50" x2="14" y2="50" /><line x1="86" y1="50" x2="94" y2="50" />
+        </svg>
+        <div className="container">
+          <blockquote>
+            <span className="opener">&ldquo;</span>
+            <Testimonial
+              quote={home?.testimonialQuote ?? "Claire is a one-woman content swiss army knife. She overhauled our advice articles and location guides, producing journalistic-quality pieces that drove a tenfold increase in traffic."}
+              highlight={home?.testimonialHighlight ?? "tenfold increase in traffic."}
+            />
+          </blockquote>
+          <cite>
+            <b>{home?.testimonialAuthor ?? "Jennifer Down"}</b>
+            {home?.testimonialRole ?? "Performance Marketing Manager · Kyero"}
+          </cite>
+        </div>
+      </section>
+    </>
+  );
+}
+
+function Testimonial({ quote, highlight }: { quote: string; highlight?: string | null }) {
+  if (!highlight) return <>{quote}</>;
+  const idx = quote.indexOf(highlight);
+  if (idx === -1) return <>{quote}</>;
+  return (
+    <>
+      {quote.slice(0, idx)}
+      <b>{highlight}</b>
+      {quote.slice(idx + highlight.length)}
     </>
   );
 }

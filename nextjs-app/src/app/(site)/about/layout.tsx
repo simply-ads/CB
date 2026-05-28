@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "About — Behind the Pen",
+  title: "About — Claire Webb",
   description:
-    "Based between the limestone cliffs of the Mediterranean and the historic libraries of London, weaving narratives for brands that prefer to whisper rather than shout.",
+    "I get travel, and I can help you sell it. A freelance travel content marketing consultant who knows how people travel — and what makes them book.",
 };
 
 export default function AboutLayout({
