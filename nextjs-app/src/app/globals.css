@@ -233,6 +233,8 @@ body { background: #F6F7F3; color: #233449; }
   display: block;
   width: clamp(380px, 34vw, 580px);
   height: auto;
+  margin-top: -18%;
+  margin-bottom: -18%;
 }
 .d2 .logo-footer {
   display: block;
