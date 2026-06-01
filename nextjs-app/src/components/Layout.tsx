@@ -27,7 +27,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
       {/* ===== Header ===== */}
       <header className="sticky top-0 z-50 bg-paper border-b border-[var(--rule)] py-3.5">
-        <div className="container grid grid-cols-[auto_1fr_auto] items-center gap-10">
+        <div className="container grid grid-cols-[auto_1fr_auto] items-center gap-4 xl:gap-10">
           <Link href="/" className="relative" aria-label="Away With Words — home">
             <Image
               src="/images/logos/web/header-lockup.png"

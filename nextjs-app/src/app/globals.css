@@ -980,7 +980,7 @@ body { background: #F6F7F3; color: #233449; }
 
 @media (max-width: 640px) {
   .d2 .container { padding: 0 22px; }
-  .d2 .logo-header { width: min(380px, calc(100vw - 64px)); }
+  .d2 .logo-header { width: calc(100vw - 88px); max-width: 400px; }
   .d2 .num .n { font-size: 60px; }
   .d2 .feature-numbers { grid-template-columns: 1fr; }
   .d2 .hero-section { min-height: auto; }
