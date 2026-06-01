@@ -231,7 +231,7 @@ body { background: #F6F7F3; color: #233449; }
 /* ---- Brand lockups ---- */
 .d2 .logo-header {
   display: block;
-  width: clamp(340px, 29vw, 500px);
+  width: clamp(380px, 34vw, 580px);
   height: auto;
 }
 .d2 .logo-footer {
@@ -490,8 +490,9 @@ body { background: #F6F7F3; color: #233449; }
 }
 .d2 .section-head h2 {
   font-variation-settings: "opsz" 144, "wght" 460, "SOFT" 50;
-  font-size: clamp(44px, 6vw, 88px); line-height: 0.98;
+  font-size: clamp(44px, 6vw, 88px); line-height: 1.08;
   letter-spacing: -0.018em; color: var(--color-ink); margin: 0; text-wrap: balance;
+  overflow: visible; padding-bottom: 0.06em;
 }
 .d2 .section-head h2 em { font-variation-settings: "opsz" 144, "wght" 500, "SOFT" 50; }
 .d2 .toc-ref { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.04em; color: var(--color-ink-3); }
@@ -979,7 +980,7 @@ body { background: #F6F7F3; color: #233449; }
 
 @media (max-width: 640px) {
   .d2 .container { padding: 0 22px; }
-  .d2 .logo-header { width: min(300px, calc(100vw - 90px)); }
+  .d2 .logo-header { width: min(340px, calc(100vw - 90px)); }
   .d2 .num .n { font-size: 60px; }
   .d2 .feature-numbers { grid-template-columns: 1fr; }
   .d2 .hero-section { min-height: auto; }

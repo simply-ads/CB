@@ -220,7 +220,7 @@ export default async function Home() {
       </section>
 
       {/* ===== WORK PREVIEW ===== */}
-      <section className="section" id="work">
+      <section className="section !pt-16" id="work">
         <div className="container">
           <div className="section-head" data-reveal>
             <div className="toc-ref"><b>The Portfolio</b>{home?.workCount ?? "06 of 40+"}</div>
