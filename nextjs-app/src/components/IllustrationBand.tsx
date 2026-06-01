@@ -1,4 +1,7 @@
-const ICONS: Record<string, React.ReactNode> = {
+import type { ReactNode } from "react";
+import Accented from "@/components/Accented";
+
+const ICONS: Record<string, ReactNode> = {
   lemon: (
     <svg width="50" height="50" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
       <ellipse cx="46" cy="60" rx="30" ry="23" /><ellipse cx="46" cy="60" rx="22" ry="16" opacity="0.55" />
@@ -81,35 +84,46 @@ const ICONS: Record<string, React.ReactNode> = {
   ),
 };
 
-const SEQUENCE: [string, React.ReactNode][] = [
-  ["lemon", <>European villas</>],
-  ["camel", <>Jordan day tours</>],
-  ["skyline", <>New York walks</>],
-  ["sailboat", <><em>Caribbean</em> sailing</>],
-  ["pagoda", <>Japan adventures</>],
-  ["mountain", <>Alpine escapes</>],
-  ["palm", <>Island escapes</>],
-  ["ship", <><em>Cruise</em> lines</>],
-  ["balloon", <>Bucket-list trips</>],
-  ["vespa", <>City escapes</>],
-  ["column", <>Classical Europe</>],
-  ["plane", <>Far-flung routes</>],
-  ["teapot", <>Slow mornings</>],
-  ["flamingo", <>Tropical tours</>],
+export type IllustrationBandItem = {
+  icon: string;
+  label: string;
+  accent?: string | null;
+};
+
+const DEFAULT_SEQUENCE: IllustrationBandItem[] = [
+  { icon: "lemon", label: "European villas" },
+  { icon: "camel", label: "Jordan day tours" },
+  { icon: "skyline", label: "New York walks" },
+  { icon: "sailboat", label: "Caribbean sailing", accent: "Caribbean" },
+  { icon: "pagoda", label: "Japan adventures" },
+  { icon: "mountain", label: "Alpine escapes" },
+  { icon: "palm", label: "Island escapes" },
+  { icon: "ship", label: "Cruise lines", accent: "Cruise" },
+  { icon: "balloon", label: "Long-haul trips" },
+  { icon: "vespa", label: "City escapes" },
+  { icon: "column", label: "Classical Europe" },
+  { icon: "plane", label: "Far-flung routes" },
+  { icon: "teapot", label: "Slow mornings" },
+  { icon: "flamingo", label: "Tropical tours" },
 ];
 
-export default function IllustrationBand() {
-  const run = SEQUENCE.map(([icon, word], i) => (
-    <span key={i} className="contents">
-      {ICONS[icon]}
-      <span className="word">{word}</span>
-    </span>
-  ));
+export default function IllustrationBand({ items }: { items?: readonly IllustrationBandItem[] | null }) {
+  const sequence = items && items.length > 0 ? items : DEFAULT_SEQUENCE;
+  const renderRun = (prefix: string) =>
+    sequence.map(({ icon, label, accent }, i) => (
+      <span key={`${prefix}-${icon}-${i}`} className="illus-item">
+        {ICONS[icon] ?? ICONS.plane}
+        <span className="word"><Accented text={label} accent={accent} /></span>
+      </span>
+    ));
+
   return (
     <div className="illus-band" aria-hidden>
-      <div className="illus-track">
-        {run}
-        {run}
+      <div className="illus-velocity">
+        <div className="illus-track">
+          {renderRun("a")}
+          {renderRun("b")}
+        </div>
       </div>
     </div>
   );

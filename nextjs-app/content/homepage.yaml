@@ -16,16 +16,62 @@ standfirstRight: >-
   place feel enchanting, glamorous and worth the journey — then make it easy to
   book. Words that get read, and words that get acted on.
 heroPhotos:
-  - tag: Jordan · Day tours
-    name: The road to Petra
-    mood: ph-petra
-  - tag: New York · City walks
-    name: Uptown
-    mood: ph-nyc
-  - tag: Caribbean · Sailing
-    name: At anchor
+  - tag: Balearics · Coastal escapes
+    name: The long way round
     mood: ph-carib
+    image: /images/home/coastal-cove.jpg
+  - tag: European villas · Slow stays
+    name: Under the vines
+    mood: ph-villa
+    image: /images/home/villa-terrace.jpg
+  - tag: Provence · Market mornings
+    name: L'Isle-sur-la-Sorgue
+    mood: ph-lemon
+    image: /images/home/provence-market.jpg
 clientsLabel: Selected clients, 2014 – 2026
+marqueeItems:
+  - icon: lemon
+    label: European villas
+    accent: ''
+  - icon: camel
+    label: Jordan day tours
+    accent: ''
+  - icon: skyline
+    label: New York walks
+    accent: ''
+  - icon: sailboat
+    label: Caribbean sailing
+    accent: Caribbean
+  - icon: pagoda
+    label: Japan adventures
+    accent: ''
+  - icon: mountain
+    label: Alpine escapes
+    accent: ''
+  - icon: palm
+    label: Island escapes
+    accent: ''
+  - icon: ship
+    label: Cruise lines
+    accent: Cruise
+  - icon: balloon
+    label: Long-haul trips
+    accent: ''
+  - icon: vespa
+    label: City escapes
+    accent: ''
+  - icon: column
+    label: Classical Europe
+    accent: ''
+  - icon: plane
+    label: Far-flung routes
+    accent: ''
+  - icon: teapot
+    label: Slow mornings
+    accent: ''
+  - icon: flamingo
+    label: Tropical tours
+    accent: ''
 clients:
   - name: Intrepid Travel
     emphasis: false

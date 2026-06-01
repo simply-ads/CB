@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { reader } from "@/lib/reader";
 import Accented from "@/components/Accented";
+import { HeroAtmosphere } from "@/components/HomeMotion";
 import { paras } from "@/lib/text";
 
 export default async function About() {
@@ -18,13 +19,14 @@ export default async function About() {
 
   return (
     <>
-      <section className="about-section !pt-28">
+      <section className="about-section subpage-hero !pt-28" data-hero-section>
+        <HeroAtmosphere />
         <div className="container">
           <div className="about-grid">
-            <div>
+            <div data-reveal="clip">
               <figure className="about-portrait">
                 <div className="scrim" />
-                {about?.portraitImage && <img src={about.portraitImage} alt="Claire Webb" />}
+                {about?.portraitImage && <img src={about.portraitImage} alt="Claire Webb" loading="lazy" decoding="async" />}
                 <figcaption className="plate-label">
                   <div className="tag">{about?.portraitTag ?? "Portrait · The writer"}</div>
                   <div className="name">{about?.portraitName ?? "On assignment"}</div>
@@ -33,9 +35,9 @@ export default async function About() {
               {about?.portraitCredit && <div className="about-credit">{about.portraitCredit}</div>}
             </div>
 
-            <div className="about-text">
+            <div className="about-text" data-reveal>
               <div className="eyebrow eyebrow--rule mb-7">{about?.eyebrow ?? "About"}</div>
-              <h2 className="fr-display text-[clamp(40px,5.5vw,76px)] leading-[0.98] tracking-[-0.018em]">
+              <h2 className="fr-display text-[clamp(40px,5.5vw,76px)] leading-[0.98] tracking-[-0.018em]" data-reveal="headline">
                 <Accented
                   text={about?.headline ?? "I get travel, and I can help you sell it."}
                   accent={about?.headlineAccent ?? "sell it"}
@@ -54,11 +56,11 @@ export default async function About() {
       {/* Philosophy / principles */}
       <section className="feature">
         <div className="container">
-          <div className="feature-eyebrow-wrap"><div className="feature-eyebrow">How I work</div></div>
-          <h2 className="feature-title">The brief stays the same. <em>Read, then book.</em></h2>
+          <div className="feature-eyebrow-wrap" data-reveal><div className="feature-eyebrow">How I work</div></div>
+          <h2 className="feature-title" data-reveal="headline">The brief stays the same. <em>Read, then book.</em></h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mt-20 pt-10 border-t border-ink">
             {principles.map((p, i) => (
-              <div key={i} className="flex flex-col gap-4">
+              <div key={i} className="flex flex-col gap-4" data-reveal>
                 <span className="font-mono text-[13px] text-ink-3">{String(i + 1).padStart(2, "0")}</span>
                 <h4 className="fr-subhead text-[26px] leading-[1.1] text-ink">{p.title}</h4>
                 <p className="fr-body text-[16px] leading-[1.6] text-ink-2 m-0">{p.description}</p>
@@ -69,7 +71,7 @@ export default async function About() {
       </section>
 
       {/* CTA */}
-      <section className="section text-center">
+      <section className="section text-center" data-reveal>
         <div className="container">
           <h2 className="fr-display text-[clamp(40px,6vw,84px)] leading-[0.98] tracking-[-0.018em] mb-10">
             Let&apos;s make your next thing <em>worth reading</em>.

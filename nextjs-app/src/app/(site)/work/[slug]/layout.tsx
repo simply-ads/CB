@@ -14,7 +14,7 @@ export async function generateMetadata({
   }
 
   return {
-    title: `${project.title} — Case Study`,
+    title: `${project.title} — Away With Words`,
     description: project.summary ?? undefined,
   };
 }

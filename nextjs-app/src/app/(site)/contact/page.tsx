@@ -1,17 +1,19 @@
 import { reader } from "@/lib/reader";
 import Accented from "@/components/Accented";
+import { HeroAtmosphere } from "@/components/HomeMotion";
 
 export default async function Contact() {
   const contact = await reader.singletons.contact.read();
   const email = contact?.email ?? "claire@clairewebb.co.uk";
 
   return (
-    <section className="contact !pt-32 min-h-[70vh] flex items-center">
+    <section className="contact subpage-hero !pt-32 min-h-[70vh] flex items-center" data-hero-section>
+      <HeroAtmosphere />
       <div className="container w-full">
         <div className="contact-grid">
-          <div>
+          <div data-reveal>
             <div className="eyebrow eyebrow--rule mb-7">{contact?.eyebrow ?? "Start a project"}</div>
-            <h2 className="fr-display text-[clamp(44px,6.4vw,96px)] leading-[0.96] tracking-[-0.02em]">
+            <h2 className="fr-display text-[clamp(44px,6.4vw,96px)] leading-[0.96] tracking-[-0.02em]" data-reveal="headline">
               <Accented
                 text={contact?.headline ?? "A travel content specialist who makes your life significantly easier."}
                 accent={contact?.headlineAccent ?? "makes your life significantly easier"}
@@ -23,7 +25,7 @@ export default async function Contact() {
             </p>
           </div>
 
-          <div className="contact-card">
+          <div className="contact-card" data-reveal="clip">
             <div className="row">
               <span className="k">Write to</span>
               <span className="v"><a href={`mailto:${email}`}>{email}</a></span>

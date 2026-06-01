@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { reader } from "@/lib/reader";
 import Accented from "@/components/Accented";
 import IncludedAccordion from "@/components/IncludedAccordion";
+import { HeroAtmosphere } from "@/components/HomeMotion";
 import { paras } from "@/lib/text";
 
 export async function generateStaticParams() {
@@ -16,7 +17,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const service = await reader.collections.services.read(slug);
   if (!service) return { title: "Service Not Found" };
   return {
-    title: `${service.title} — Claire Webb`,
+    title: `${service.title} — Away With Words`,
     description: service.summary ?? undefined,
   };
 }
@@ -45,18 +46,19 @@ export default async function ServiceDetail({ params }: { params: Promise<{ slug
   return (
     <article>
       {/* ===== Header ===== */}
-      <section className="feature !bg-paper !pt-24 !pb-0">
+      <section className="feature subpage-hero !bg-paper !pt-24 !pb-0" data-hero-section>
+        <HeroAtmosphere />
         <div className="container">
-          <div className="feature-eyebrow-wrap">
+          <div className="feature-eyebrow-wrap" data-reveal>
             <div className="feature-eyebrow">
               {service.eyebrow ?? "Service"} · {order}
             </div>
           </div>
-          <h1 className="feature-title">
+          <h1 className="feature-title" data-reveal="headline">
             <Accented text={service.title} accent={service.titleAccent} />
           </h1>
           {intro.length > 0 && (
-            <div className="max-w-[760px] mx-auto mt-10 text-center">
+            <div className="max-w-[760px] mx-auto mt-10 text-center" data-reveal>
               {intro.map((p, i) => (
                 <p key={i} className="fr-subhead text-[22px] leading-[1.5] text-ink-2">
                   {p}
@@ -71,7 +73,7 @@ export default async function ServiceDetail({ params }: { params: Promise<{ slug
       <section className="section !pt-24">
         <div className="container">
           <div className="grid grid-cols-1 lg:grid-cols-[1.4fr_1fr] gap-16 lg:gap-24 items-start">
-            <div>
+            <div data-reveal>
               {body.map((p, i) => (
                 <p key={i} className="fr-body text-[18px] leading-[1.68] text-ink mb-5">
                   {i === 0 && <span className="dropcap">{p[0]}</span>}
@@ -81,7 +83,7 @@ export default async function ServiceDetail({ params }: { params: Promise<{ slug
             </div>
 
             {included.length > 0 && (
-              <aside>
+              <aside data-reveal>
                 <div className="eyebrow mb-6">What&apos;s included</div>
                 <IncludedAccordion items={included} />
               </aside>
@@ -94,7 +96,7 @@ export default async function ServiceDetail({ params }: { params: Promise<{ slug
       {related.length > 0 && (
         <section className="feature">
           <div className="container">
-            <div className="section-head !mb-16">
+            <div className="section-head !mb-16" data-reveal>
               <div className="toc-ref">
                 <b>Related work</b>
                 {related.length} {related.length === 1 ? "case" : "cases"}
@@ -105,11 +107,11 @@ export default async function ServiceDetail({ params }: { params: Promise<{ slug
             </div>
             <div className="work-grid">
               {related.slice(0, 3).map((p) => (
-                <Link key={p.slug} href={`/work/${p.slug}`} className="work-card work--sm">
+                <Link key={p.slug} href={`/work/${p.slug}`} className="work-card work--sm" data-reveal="clip">
                   <div className={`work-photo ${p.mood ?? "ph-villa"}`}>
                     <div className="scrim" />
                     {p.featuredImage ? (
-                      <img src={p.featuredImage} alt={p.title} />
+                      <img src={p.featuredImage} alt={p.title} loading="lazy" decoding="async" />
                     ) : (
                       <div className="placeholder">
                         <div>
@@ -134,7 +136,7 @@ export default async function ServiceDetail({ params }: { params: Promise<{ slug
       )}
 
       {/* ===== CTA ===== */}
-      <section className="bg-ink text-paper py-28">
+      <section className="bg-ink text-paper py-28" data-reveal>
         <div className="container flex flex-col sm:flex-row items-center justify-between gap-8">
           <h2 className="fr-display text-[clamp(32px,4.6vw,60px)] leading-[1.0] text-paper max-w-[640px]">
             {service.ctaHeading ?? "Need this? Let's talk."}

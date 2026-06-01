@@ -13,6 +13,23 @@ const MOOD_OPTIONS = [
   { label: "Azure (blue)", value: "ph-azure" },
 ] as const;
 
+const MARQUEE_ICON_OPTIONS = [
+  { label: "Lemon", value: "lemon" },
+  { label: "Camel", value: "camel" },
+  { label: "New York skyline", value: "skyline" },
+  { label: "Sailboat", value: "sailboat" },
+  { label: "Pagoda", value: "pagoda" },
+  { label: "Mountain", value: "mountain" },
+  { label: "Palm tree", value: "palm" },
+  { label: "Cruise ship", value: "ship" },
+  { label: "Hot-air balloon", value: "balloon" },
+  { label: "Vespa", value: "vespa" },
+  { label: "Classical column", value: "column" },
+  { label: "Prop plane", value: "plane" },
+  { label: "Teapot", value: "teapot" },
+  { label: "Flamingo", value: "flamingo" },
+] as const;
+
 export default config({
   storage: isProd
     ? {
@@ -62,10 +79,33 @@ export default config({
             tag: fields.text({ label: "Tag" }),
             name: fields.text({ label: "Caption" }),
             mood: fields.select({ label: "Mood", options: MOOD_OPTIONS, defaultValue: "ph-villa" }),
+            image: fields.image({
+              label: "Image",
+              directory: "public/images/home",
+              publicPath: "/images/home",
+            }),
           }),
           { label: "Hero Photos", itemLabel: (p) => p.fields.name.value || "Photo" }
         ),
         clientsLabel: fields.text({ label: "Clients Label", defaultValue: "Selected clients, 2014 – 2026" }),
+        marqueeItems: fields.array(
+          fields.object({
+            icon: fields.select({
+              label: "Illustration",
+              options: MARQUEE_ICON_OPTIONS,
+              defaultValue: "plane",
+            }),
+            label: fields.text({ label: "Label" }),
+            accent: fields.text({
+              label: "Accent phrase",
+              description: "Optional phrase inside the label to render in azure.",
+            }),
+          }),
+          {
+            label: "Scrolling Marquee Items",
+            itemLabel: (p) => p.fields.label.value || "Marquee item",
+          }
+        ),
         clients: fields.array(
           fields.object({
             name: fields.text({ label: "Name" }),
@@ -113,6 +153,11 @@ export default config({
         coverTag: fields.text({ label: "Cover Tag", defaultValue: "Vintage Travel · Magazine · 150pp" }),
         coverName: fields.text({ label: "Cover Caption", defaultValue: "Contents spread" }),
         coverMood: fields.select({ label: "Cover Mood", options: MOOD_OPTIONS, defaultValue: "ph-azure" }),
+        coverImage: fields.image({
+          label: "Cover Image",
+          directory: "public/images/featured",
+          publicPath: "/images/featured",
+        }),
         bodyLeft: fields.text({
           label: "Body — Left column (paragraphs separated by blank lines)",
           multiline: true,

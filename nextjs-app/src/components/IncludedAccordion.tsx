@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { ChevronDown } from "lucide-react";
 
 export type IncludedItem = { title: string; detail?: string | null };
 
@@ -27,14 +28,13 @@ export default function IncludedAccordion({ items }: { items: IncludedItem[] }) 
               >
                 {item.title}
               </span>
-              <span
-                className={`text-azure text-[20px] leading-none translate-y-[2px] transition-transform duration-200 ${
-                  isOpen ? "rotate-45" : ""
+              <ChevronDown
+                size={17}
+                className={`text-azure translate-y-[2px] transition-transform duration-200 ${
+                  isOpen ? "rotate-180" : ""
                 }`}
                 aria-hidden
-              >
-                +
-              </span>
+              />
             </button>
             <div
               className={`grid transition-[grid-template-rows] duration-200 ease-out ${

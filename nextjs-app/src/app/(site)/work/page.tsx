@@ -1,24 +1,29 @@
+import type { CSSProperties } from "react";
 import Link from "next/link";
 import { reader } from "@/lib/reader";
 import Accented from "@/components/Accented";
+import { HeroAtmosphere } from "@/components/HomeMotion";
 
 const SIZE_CYCLE = ["work--lg", "work--md", "work--sm", "work--wide", "work--sm", "work--sm", "work--wide", "work--md"];
+const revealStyle = (index: number) =>
+  ({ "--reveal-index": index } as CSSProperties);
 
 export default async function Work() {
   const allProjects = await reader.collections.projects.all();
   const projects = allProjects.sort((a, b) => (a.entry.sortOrder ?? 0) - (b.entry.sortOrder ?? 0));
 
   return (
-    <section className="section">
+    <section className="section subpage-hero !pt-28" data-hero-section>
+      <HeroAtmosphere />
       <div className="container">
         {/* Header */}
-        <div className="section-head">
+        <div className="section-head" data-reveal>
           <div className="toc-ref"><b>Work Gallery</b>2014 — 2026</div>
           <div>
-            <h2>
+            <h2 data-reveal="headline">
               Selected <em>editorial</em>, measured in bookings and sign-ups.
             </h2>
-            <p className="mt-6 fr-body text-[16px] leading-[1.6] text-ink-2 max-w-[460px]">
+            <p className="mt-6 fr-body text-[16px] leading-[1.6] text-ink-2 max-w-[460px]" data-reveal style={revealStyle(1)}>
               A curated set of brand narratives, customer magazines, market reports and verbal
               identities for travel and tourism brands across the world.
             </p>
@@ -32,11 +37,17 @@ export default async function Work() {
             const size = e.featuredSize || SIZE_CYCLE[i % SIZE_CYCLE.length] || "work--md";
             const showDek = (size === "work--lg" || size === "work--wide") && !!e.summary;
             return (
-              <Link key={p.slug} href={`/work/${p.slug}`} className={`work-card ${size}`}>
+              <Link
+                key={p.slug}
+                href={`/work/${p.slug}`}
+                className={`work-card ${size}`}
+                data-reveal="clip"
+                style={revealStyle(i)}
+              >
                 <div className={`work-photo ${e.mood ?? "ph-villa"}`}>
                   <div className="scrim" />
                   {e.featuredImage ? (
-                    <img src={e.featuredImage} alt={e.title} />
+                    <img src={e.featuredImage} alt={e.title} loading="lazy" decoding="async" />
                   ) : (
                     <div className="placeholder">
                       <div>
@@ -64,7 +75,7 @@ export default async function Work() {
         </div>
 
         {/* CTA */}
-        <div className="mt-32 pt-20 border-t border-[var(--rule)] text-center">
+        <div className="mt-32 pt-20 border-t border-[var(--rule)] text-center" data-reveal>
           <div className="eyebrow mb-6 justify-center">Next step</div>
           <h2 className="fr-display text-[clamp(40px,6vw,80px)] leading-[0.98] tracking-[-0.018em] mb-10">
             Let&apos;s make your next thing <em>worth reading</em>.

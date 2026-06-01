@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Work — Claire Webb",
+  title: "Work — Away With Words",
   description:
     "Selected travel content work — customer magazines, market reports, website copy and editorial — measured in bookings, enquiries and sign-ups.",
 };

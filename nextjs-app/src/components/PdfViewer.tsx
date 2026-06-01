@@ -35,7 +35,7 @@ export default function PdfViewer({ file, label }: PdfViewerProps) {
   const zoomOut = () => setScale((s) => Math.max(0.5, s - 0.25));
 
   return (
-    <div className={`${isExpanded ? "fixed inset-0 z-50 bg-cream/95 backdrop-blur-sm flex flex-col" : ""}`}>
+    <div className={`${isExpanded ? "fixed inset-0 z-50 bg-cream flex flex-col" : ""}`}>
       {/* Header bar */}
       <div
         className={`flex items-center justify-between border-b border-charcoal/10 ${
@@ -104,7 +104,7 @@ export default function PdfViewer({ file, label }: PdfViewerProps) {
             <Page
               pageNumber={pageNumber}
               scale={scale}
-              className="shadow-xl"
+              className="border border-charcoal/10"
               renderAnnotationLayer
               renderTextLayer
             />

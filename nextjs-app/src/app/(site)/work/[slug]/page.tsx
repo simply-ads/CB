@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { reader } from "@/lib/reader";
 import PdfViewerClient from "@/components/PdfViewerClient";
 import Accented from "@/components/Accented";
+import { AnimatedNumber } from "@/components/HomeMotion";
 import { paras } from "@/lib/text";
 
 export async function generateStaticParams() {
@@ -25,20 +26,20 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
   }
 
   return (
-    <article className="pt-24">
+    <article className="pt-24 case-study" data-feature-section>
       {/* ===== Header ===== */}
-      <div className="feature !bg-paper !pt-16 !pb-0">
+      <div className="feature cinematic-feature !bg-paper !pt-16 !pb-0">
         <div className="container">
-          <div className="feature-eyebrow-wrap">
+          <div className="feature-eyebrow-wrap" data-reveal>
             <div className="feature-eyebrow">
               Case Study {project.number ?? "01"} · {project.category ?? "Travel content"}
             </div>
           </div>
-          <h1 className="feature-title">
+          <h1 className="feature-title" data-reveal="headline">
             <Accented text={project.title} accent={project.titleAccent} />
           </h1>
 
-          <div className="flex flex-wrap justify-center gap-x-16 gap-y-4 mt-10 fr-label text-[11px] tracking-[0.2em] uppercase text-ink-2">
+          <div className="flex flex-wrap justify-center gap-x-16 gap-y-4 mt-10 fr-label text-[11px] tracking-[0.2em] uppercase text-ink-2" data-reveal>
             {project.client && (
               <div>
                 <span className="text-ink-3 block mb-1">Client</span>
@@ -59,9 +60,9 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
             )}
           </div>
 
-          <figure className={`feature-cover ${project.mood ?? "ph-villa"}`}>
+          <figure className={`feature-cover ${project.mood ?? "ph-villa"}`} data-reveal="clip">
             <div className="scrim" />
-            {project.featuredImage && <img src={project.featuredImage} alt={project.title} />}
+            {project.featuredImage && <img src={project.featuredImage} alt={project.title} loading="eager" decoding="async" fetchPriority="high" />}
             <figcaption className="plate-label">
               <div className="tag">{project.plateTag ?? project.category}</div>
               <div className="name">{project.plateName ?? project.client ?? project.title}</div>
@@ -74,7 +75,7 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
       {(bodyLeft.length > 0 || bodyRight.length > 0 || project.pullQuote) && (
         <section className="section !pt-20">
           <div className="container">
-            <div className="feature-body !mt-0">
+            <div className="feature-body !mt-0" data-reveal>
               <div>
                 {bodyLeft.map((para, i) => (
                   <p key={i} className={i === 0 ? "has-dropcap" : ""}>{para}</p>
@@ -93,8 +94,8 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
             {project.stats && project.stats.length > 0 && (
               <div className="feature-numbers">
                 {project.stats.map((s, i) => (
-                  <div className="num" key={i}>
-                    <div className="n">{s.number}</div>
+                  <div className="num" key={i} data-reveal>
+                    <div className="n"><AnimatedNumber value={s.number} /></div>
                     <div className="l">{s.label}</div>
                   </div>
                 ))}
@@ -108,7 +109,7 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
       {project.documents && project.documents.length > 0 && (
         <section className="section !pt-0">
           <div className="container">
-            <div className="mb-12">
+            <div className="mb-12" data-reveal>
               <div className="eyebrow mb-4">The work</div>
               <h2 className="fr-display text-[clamp(36px,5vw,64px)] leading-[1.0]">Read the samples.</h2>
             </div>
@@ -116,7 +117,7 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
               {project.documents.map(
                 (doc, i) =>
                   doc.file && (
-                    <div key={i} className="border border-[var(--rule-strong)] bg-paper-soft overflow-hidden">
+                    <div key={i} className="border border-[var(--rule-strong)] bg-paper-soft overflow-hidden" data-reveal="clip">
                       <PdfViewerClient file={doc.file} label={doc.label ?? "Document"} />
                     </div>
                   )
@@ -128,7 +129,7 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
 
       {/* ===== Testimonial ===== */}
       {project.testimonialQuote && (
-        <section className="quote-section">
+        <section className="quote-section" data-quote-section data-reveal>
           <div className="container">
             <blockquote>
               <span className="opener">&ldquo;</span>
@@ -143,7 +144,7 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
       )}
 
       {/* ===== Closing nav ===== */}
-      <section className="bg-ink text-paper py-28">
+      <section className="bg-ink text-paper py-28" data-reveal>
         <div className="container flex flex-col sm:flex-row items-center justify-between gap-8">
           {project.nextProject ? (
             <Link href={`/work/${project.nextProject}`} className="group">
