@@ -89,6 +89,11 @@ export default async function ServiceDetail({ params }: { params: Promise<{ slug
               </aside>
             )}
           </div>
+          <div className="mt-14 text-center" data-reveal>
+            <Link href="/contact" className="btn btn--azure">
+              Get in touch <span className="arrow">↗</span>
+            </Link>
+          </div>
         </div>
       </section>
 
