@@ -37,36 +37,30 @@ heroPhotos:
     image: /images/home/heroPhotos/2/image.jpg
 clientsLabel: Selected clients, 2014 – 2026
 marqueeItems:
-  - icon: lemon
-    label: European villas
-  - icon: camel
-    label: Jordan day tours
   - icon: skyline
-    label: New York walks
+    label: Website & destination copy
+  - icon: camel
+    label: Email campaigns & copy
+  - icon: skyline
+    label: SEO travel guides
   - icon: sailboat
-    label: Caribbean sailing
+    label: Consumer magazines
     accent: Caribbean
   - icon: pagoda
-    label: Japan adventures
+    label: Industry reports
   - icon: mountain
-    label: Alpine escapes
+    label: Villa, tour & experience listings
   - icon: palm
-    label: Island escapes
+    label: Lead magnets & gated content
   - icon: ship
-    label: Cruise lines
+    label: Podcast planning, interviewing & scripting
     accent: Cruise
   - icon: balloon
-    label: Long-haul trips
+    label: Press releases & PR copy
   - icon: vespa
-    label: City escapes
+    label: Content audits & editorial strategy
   - icon: column
-    label: Classical Europe
-  - icon: plane
-    label: Far-flung routes
-  - icon: teapot
-    label: Slow mornings
-  - icon: flamingo
-    label: Tropical tours
+    label: Travel copywriting workshops for in-house teams
 clients:
   - name: Intrepid Travel
     emphasis: false
