@@ -1,77 +1,74 @@
 heroEyebrow: Freelance travel content marketing
 heroHeadline: >-
-  Travel content that feels like the good old days of going somewhere — and
-  still gets them to book.
-heroAccent: good old days
+  Smart, practical content marketing for travel brands that want bookings, not
+  buzzwords.
+heroAccent: bookings, not buzzwords.
 standfirstLeftLabel: By the writer
 standfirstLeft: >-
-  I'm a freelance content marketing consultant for travel and tourism brands of
-  every shape — a day-tour operator in Jordan, a New York walking-tour company,
-  a European villa collection, a Caribbean sailing line. I write, plan and
-  produce content for them: website copy, customer magazines, market reports,
-  podcasts, lead magnets.
-standfirstRightLabel: The brief, always
+  I'm a freelance content marketing consultant for travel and tourism brands. I
+  write, plan and produce website copy, email campaigns, customer magazines,
+  market reports, podcasts, lead magnets, the lot. Whatever the format, the
+  brief stays the same: I produce content that gets seen and acted upon.
+standfirstRightLabel: Experience
 standfirstRight: >-
-  Whatever the format or the destination, the brief stays the same. Make the
-  place feel enchanting, glamorous and worth the journey — then make it easy to
-  book. Words that get read, and words that get acted on.
+  I've spent the last decade running content at Kyero and Urban Adventures
+  (Intrepid Travel Group), and writing for Atlas Obscura, Vintage Travel, Cruise
+  Nation, Tourpreneur and New York Times Journeys. I know how travel content
+  slots into SEO, email, PR, social and launches. Not just words on a page, but
+  words that drive enquiries and bookings.
+
+
+  I've worked with big audiences, small budgets, tight timelines and ambitious
+  growth targets. Often all at once.
+
+
+  If you need a travel content specialist who writes clearly, thinks
+  commercially and makes your life significantly easier, please get in touch.
 heroPhotos:
   - tag: Balearics · Coastal escapes
     name: The long way round
     mood: ph-carib
-    image: /images/home/coastal-cove.jpg
+    image: /images/home/heroPhotos/0/image.jpg
   - tag: European villas · Slow stays
     name: Under the vines
     mood: ph-villa
-    image: /images/home/villa-terrace.jpg
+    image: /images/home/heroPhotos/1/image.jpg
   - tag: Provence · Market mornings
     name: L'Isle-sur-la-Sorgue
     mood: ph-lemon
-    image: /images/home/provence-market.jpg
+    image: /images/home/heroPhotos/2/image.jpg
 clientsLabel: Selected clients, 2014 – 2026
 marqueeItems:
   - icon: lemon
     label: European villas
-    accent: ''
   - icon: camel
     label: Jordan day tours
-    accent: ''
   - icon: skyline
     label: New York walks
-    accent: ''
   - icon: sailboat
     label: Caribbean sailing
     accent: Caribbean
   - icon: pagoda
     label: Japan adventures
-    accent: ''
   - icon: mountain
     label: Alpine escapes
-    accent: ''
   - icon: palm
     label: Island escapes
-    accent: ''
   - icon: ship
     label: Cruise lines
     accent: Cruise
   - icon: balloon
     label: Long-haul trips
-    accent: ''
   - icon: vespa
     label: City escapes
-    accent: ''
   - icon: column
     label: Classical Europe
-    accent: ''
   - icon: plane
     label: Far-flung routes
-    accent: ''
   - icon: teapot
     label: Slow mornings
-    accent: ''
   - icon: flamingo
     label: Tropical tours
-    accent: ''
 clients:
   - name: Intrepid Travel
     emphasis: false
