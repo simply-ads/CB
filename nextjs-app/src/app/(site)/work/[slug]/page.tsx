@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { reader } from "@/lib/reader";
 import PdfViewerClient from "@/components/PdfViewerClient";
+import MagazineViewerClient from "@/components/MagazineViewerClient";
 import Accented from "@/components/Accented";
 import { AnimatedNumber } from "@/components/HomeMotion";
 import { paras } from "@/lib/text";
@@ -115,12 +116,24 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
             </div>
             <div className="space-y-12">
               {project.documents.map(
-                (doc, i) =>
-                  doc.file && (
+                (doc, i) => {
+                  const hasPages = (doc as any).pagesPath && (doc as any).pageCount;
+                  if (!doc.file && !hasPages) return null;
+                  return (
                     <div key={i} className="border border-[var(--rule-strong)] bg-paper-soft overflow-hidden" data-reveal="clip">
-                      <PdfViewerClient file={doc.file} label={doc.label ?? "Document"} />
+                      {hasPages ? (
+                        <MagazineViewerClient
+                          basePath={(doc as any).pagesPath}
+                          pageCount={(doc as any).pageCount}
+                          label={doc.label ?? "Document"}
+                          downloadUrl={doc.file ?? undefined}
+                        />
+                      ) : (
+                        <PdfViewerClient file={doc.file!} label={doc.label ?? "Document"} />
+                      )}
                     </div>
-                  )
+                  );
+                }
               )}
             </div>
           </div>

@@ -27,7 +27,9 @@ bodyRight: |-
   Bookings rose 22% in the months that followed, and Vintage subsequently commissioned the website copy rewrite that extended into a multi-year engagement.
 documents:
   - label: Vintage Travel Magazine
-    file: /documents/Vintage-Travel-Magazine.pdf
+    file: null
+    pagesPath: /images/projects/vintage-travel-magazine/pages
+    pageCount: 48
 stats:
   - number: +22%
     label: Increase in bookings post-mailing

@@ -305,6 +305,8 @@ export default config({
           fields.object({
             label: fields.text({ label: "Label" }),
             file: fields.file({ label: "PDF File", directory: "public/documents", publicPath: "/documents" }),
+            pagesPath: fields.text({ label: "Pre-rendered Pages Path", description: "Base path for page images, e.g. /images/projects/slug/pages" }),
+            pageCount: fields.number({ label: "Page Count", description: "Total number of pre-rendered page images" }),
           }),
           { label: "Documents", itemLabel: (p) => p.fields.label.value || "Document" }
         ),
