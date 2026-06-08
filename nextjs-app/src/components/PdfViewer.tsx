@@ -112,6 +112,7 @@ export default function PdfViewer({ file, label }: PdfViewerProps) {
               className="border border-charcoal/10"
               renderAnnotationLayer
               renderTextLayer
+              renderStructTreeLayer={false}
             />
           </Document>
         </div>
