@@ -610,8 +610,9 @@ body { background: #F6F7F3; color: #233449; }
 .d2 .feature-eyebrow::before, .d2 .feature-eyebrow::after { content: ""; width: 40px; height: 1px; background: var(--color-azure); }
 .d2 .feature-title {
     font-variation-settings: "opsz" 144, "wght" 460, "SOFT" 50;
-    font-size: clamp(44px, 5.6vw, 86px); line-height: 0.96; letter-spacing: -0.02em;
+    font-size: clamp(44px, 5.6vw, 86px); line-height: 1.08; letter-spacing: -0.02em;
   color: var(--color-ink); margin: 0 auto; max-width: 1180px; text-align: center; text-wrap: balance;
+  overflow: visible; padding-bottom: 0.06em;
 }
 .d2 .feature-title em { font-variation-settings: "opsz" 144, "wght" 500, "SOFT" 50; }
 .d2 .feature-cover {
@@ -950,6 +951,7 @@ body { background: #F6F7F3; color: #233449; }
   .d2 .section, .d2 .feature, .d2 .toc-section, .d2 .about-section, .d2 .contact, .d2 .quote-section { padding: 80px 0; }
   .d2 .section-head { grid-template-columns: 1fr; gap: 28px; }
   .d2 .feature-body { grid-template-columns: 1fr; gap: 0; }
+  .d2 .feature-cover { aspect-ratio: 4 / 3; }
   .d2 .feature-numbers { grid-template-columns: repeat(2, 1fr); gap: 40px 24px; }
   .d2 .about-grid, .d2 .contact-grid { grid-template-columns: 1fr; gap: 48px; }
   .d2 .journey-section { padding: 88px 0 96px; }

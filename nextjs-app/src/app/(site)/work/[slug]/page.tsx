@@ -26,9 +26,9 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
   }
 
   return (
-    <article className="pt-24 case-study" data-feature-section>
+    <article className="pt-8 case-study" data-feature-section>
       {/* ===== Header ===== */}
-      <div className="feature cinematic-feature !bg-paper !pt-16 !pb-0">
+      <div className="feature cinematic-feature !bg-paper !pt-8 !pb-0">
         <div className="container">
           <div className="feature-eyebrow-wrap" data-reveal>
             <div className="feature-eyebrow">
