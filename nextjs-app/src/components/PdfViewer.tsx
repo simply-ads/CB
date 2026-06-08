@@ -110,9 +110,8 @@ export default function PdfViewer({ file, label }: PdfViewerProps) {
               pageNumber={pageNumber}
               scale={scale}
               className="border border-charcoal/10"
-              renderAnnotationLayer
-              renderTextLayer
-              renderStructTreeLayer={false}
+              renderAnnotationLayer={false}
+              renderTextLayer={false}
             />
           </Document>
         </div>
