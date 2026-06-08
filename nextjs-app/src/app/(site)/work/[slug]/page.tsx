@@ -42,19 +42,19 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
 
           <div className="flex flex-wrap justify-center gap-x-16 gap-y-4 mt-10 fr-label text-[11px] tracking-[0.2em] uppercase text-ink-2" data-reveal>
             {project.client && (
-              <div>
+              <div className="text-center">
                 <span className="text-ink-3 block mb-1">Client</span>
                 <span className="text-ink">{project.client}</span>
               </div>
             )}
             {project.scope && (
-              <div>
+              <div className="text-center">
                 <span className="text-ink-3 block mb-1">Scope</span>
                 <span className="text-ink">{project.scope}</span>
               </div>
             )}
             {project.year && (
-              <div>
+              <div className="text-center">
                 <span className="text-ink-3 block mb-1">Year</span>
                 <span className="text-ink font-mono normal-case tracking-normal">{project.year}</span>
               </div>
