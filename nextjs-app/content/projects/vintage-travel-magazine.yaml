@@ -25,7 +25,9 @@ bodyRight: |-
   The tone was deliberately inspirational but grounded. Mailed to 8,000 existing customers, the magazine landed as a printed, beautifully-photographed object that earned its place on the coffee table.
 
   Bookings rose 22% in the months that followed, and Vintage subsequently commissioned the website copy rewrite that extended into a multi-year engagement.
-documents: []
+documents:
+  - label: Vintage Travel Magazine
+    file: /documents/Vintage-Travel-Magazine.pdf
 stats:
   - number: +22%
     label: Increase in bookings post-mailing
