@@ -41,7 +41,7 @@ export default function MagazineViewer({ basePath, pageCount, label, downloadUrl
 
     el.addEventListener("wheel", onWheel, { passive: false });
     return () => el.removeEventListener("wheel", onWheel);
-  }, [zoom]);
+  }, [zoom, isExpanded]);
 
   // Escape key for fullscreen
   useEffect(() => {
