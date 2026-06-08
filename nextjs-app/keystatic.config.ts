@@ -34,7 +34,7 @@ export default config({
   storage: isProd
     ? {
         kind: "github",
-        repo: "simply-ads/CB",
+        repo: "AdamVT85/CB",
         pathPrefix: "nextjs-app",
       }
     : {
