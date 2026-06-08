@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect, useCallback } from "react";
 import { createPortal } from "react-dom";
-import { ZoomIn, ZoomOut, Maximize2, Minimize2 } from "lucide-react";
+import { ZoomIn, ZoomOut, Maximize2, Minimize2, Download } from "lucide-react";
 
 interface MagazineViewerProps {
   basePath: string;
@@ -63,6 +63,17 @@ export default function MagazineViewer({ basePath, pageCount, label, downloadUrl
         {label}
       </span>
       <div className="flex items-center gap-1">
+        {downloadUrl && (
+          <a
+            href={downloadUrl}
+            download
+            className="fr-label flex items-center gap-1.5 text-[10px] uppercase tracking-[0.2em] text-[var(--color-ink-3)] hover:text-[var(--color-azure)] transition-colors mr-3"
+          >
+            <Download size={14} />
+            <span>Download PDF</span>
+          </a>
+        )}
+        <div className="w-[1px] h-4 bg-[var(--rule)] mr-2" />
         <button
           onClick={zoomOut}
           disabled={zoom <= 50}
