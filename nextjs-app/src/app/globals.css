@@ -952,6 +952,9 @@ body { background: #F6F7F3; color: #233449; }
   .d2 .section-head { grid-template-columns: 1fr; gap: 28px; }
   .d2 .feature-body { grid-template-columns: 1fr; gap: 0; }
   .d2 .feature-cover { aspect-ratio: 4 / 3; }
+  .d2 .feature-cover .plate-label { left: 16px; bottom: 14px; }
+  .d2 .feature-cover .plate-label .tag { font-size: 8px; }
+  .d2 .feature-cover .plate-label .name { font-size: 16px; }
   .d2 .feature-numbers { grid-template-columns: repeat(2, 1fr); gap: 40px 24px; }
   .d2 .about-grid, .d2 .contact-grid { grid-template-columns: 1fr; gap: 48px; }
   .d2 .journey-section { padding: 88px 0 96px; }
