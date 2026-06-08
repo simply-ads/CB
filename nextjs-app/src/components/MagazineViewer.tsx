@@ -20,7 +20,7 @@ export default function MagazineViewer({ basePath, pageCount, label, downloadUrl
   const zoomOut = () => setZoom((z) => Math.max(50, z - 25));
 
   const pageFilename = useCallback(
-    (n: number) => `${basePath}/page-${String(n).padStart(3, "0")}.jpg`,
+    (n: number) => `${basePath}/page-${String(n).padStart(3, "0")}.png`,
     [basePath]
   );
 

@@ -85,8 +85,8 @@ for (let i = 1; i <= numPages; i++) {
   await page.setViewport({ width: dims.width, height: dims.height, deviceScaleFactor: 1 });
 
   const canvas = await page.$("#c");
-  const filename = `page-${String(i).padStart(3, "0")}.jpg`;
-  await canvas.screenshot({ path: join(outDir, filename), type: "jpeg", quality: 85 });
+  const filename = `page-${String(i).padStart(3, "0")}.png`;
+  await canvas.screenshot({ path: join(outDir, filename), type: "png" });
 
   const size = statSync(join(outDir, filename)).size;
   console.log(`  ✓ ${filename}  (${Math.round(size / 1024)} KB)`);
