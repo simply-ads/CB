@@ -97,14 +97,14 @@ export default function MagazineViewer({ basePath, pageCount, label, downloadUrl
   const scrollArea = (
     <div
       ref={scrollRef}
-      className={`overflow-x-auto overflow-y-hidden bg-[var(--color-paper-2)] ${
+      className={`overflow-auto bg-[var(--color-paper-2)] ${
         isExpanded ? "flex-1" : ""
       }`}
       style={{ height: isExpanded ? undefined : "75vh" }}
     >
       <div
-        className="flex items-start gap-3 h-full py-4 px-4"
-        style={{ width: "max-content" }}
+        className="flex items-start gap-3 py-4 px-4"
+        style={{ width: "max-content", height: `${zoom}%` }}
       >
         {pages.map((n) => (
           <img
@@ -114,7 +114,6 @@ export default function MagazineViewer({ basePath, pageCount, label, downloadUrl
             className="h-full w-auto flex-shrink-0 shadow-sm"
             loading={n <= 6 ? "eager" : "lazy"}
             decoding="async"
-            style={{ transform: `scale(${zoom / 100})`, transformOrigin: "top left" }}
           />
         ))}
       </div>
