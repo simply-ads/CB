@@ -67,36 +67,36 @@ export default function MagazineViewer({ basePath, pageCount, label, downloadUrl
           <a
             href={downloadUrl}
             download
-            className="fr-label flex items-center gap-1.5 text-[10px] uppercase tracking-[0.2em] text-[var(--color-ink-3)] hover:text-[var(--color-azure)] transition-colors mr-3"
+            className="fr-label flex items-center gap-1.5 text-[10px] uppercase tracking-[0.2em] text-[var(--color-ink-3)] hover:text-[var(--color-azure)] transition-colors mr-1 sm:mr-3"
           >
             <Download size={14} />
-            <span>Download PDF</span>
+            <span className="hidden sm:inline">Download PDF</span>
           </a>
         )}
-        <div className="w-[1px] h-4 bg-[var(--rule)] mr-2" />
+        <div className="w-[1px] h-4 bg-[var(--rule)] mr-1 sm:mr-2 hidden sm:block" />
         <button
           onClick={zoomOut}
           disabled={zoom <= 50}
-          className="p-2 text-[var(--color-ink-3)] hover:text-[var(--color-azure)] disabled:opacity-30 transition-colors"
+          className="p-1.5 sm:p-2 text-[var(--color-ink-3)] hover:text-[var(--color-azure)] disabled:opacity-30 transition-colors"
           aria-label="Zoom out"
         >
           <ZoomOut size={16} />
         </button>
-        <span className="fr-label text-[10px] text-[var(--color-ink-3)] w-12 text-center tracking-wider">
+        <span className="fr-label text-[10px] text-[var(--color-ink-3)] w-10 sm:w-12 text-center tracking-wider hidden sm:inline-block">
           {zoom}%
         </span>
         <button
           onClick={zoomIn}
           disabled={zoom >= 200}
-          className="p-2 text-[var(--color-ink-3)] hover:text-[var(--color-azure)] disabled:opacity-30 transition-colors"
+          className="p-1.5 sm:p-2 text-[var(--color-ink-3)] hover:text-[var(--color-azure)] disabled:opacity-30 transition-colors"
           aria-label="Zoom in"
         >
           <ZoomIn size={16} />
         </button>
-        <div className="w-[1px] h-4 bg-[var(--rule)] mx-2" />
+        <div className="w-[1px] h-4 bg-[var(--rule)] mx-1 sm:mx-2 hidden sm:block" />
         <button
           onClick={() => setIsExpanded(!isExpanded)}
-          className="p-2 text-[var(--color-ink-3)] hover:text-[var(--color-azure)] transition-colors"
+          className="p-1.5 sm:p-2 text-[var(--color-ink-3)] hover:text-[var(--color-azure)] transition-colors"
           aria-label={isExpanded ? "Exit fullscreen" : "Fullscreen"}
         >
           {isExpanded ? <Minimize2 size={16} /> : <Maximize2 size={16} />}
