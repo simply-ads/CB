@@ -86,6 +86,11 @@ export default function PdfViewer({ file, label }: PdfViewerProps) {
           <Document
             file={file}
             onLoadSuccess={onDocumentLoadSuccess}
+            options={{
+              cMapUrl: `https://unpkg.com/pdfjs-dist@${pdfjs.version}/cmaps/`,
+              cMapPacked: true,
+              standardFontDataUrl: `https://unpkg.com/pdfjs-dist@${pdfjs.version}/standard_fonts/`,
+            }}
             loading={
               <div className="flex items-center justify-center py-24">
                 <span className="text-sm text-charcoal/40 uppercase tracking-[0.3em] font-bold">
